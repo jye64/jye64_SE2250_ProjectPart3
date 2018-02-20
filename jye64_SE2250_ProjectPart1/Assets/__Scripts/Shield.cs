@@ -26,6 +26,5 @@ public class Shield : MonoBehaviour {
 		}
 		float rz = -(rotationsPerSecond * Time.time * 360) % 360f;
 		transform.rotation = Quaternion.Euler (0, 0, rz);
-		
 	}
 }
