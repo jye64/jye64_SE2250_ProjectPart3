@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: a5170ba58d1cb4a7ab5ee8c538279171
+  productGUID: df7928d568ce44fcf89da76d5b47e514
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -457,7 +457,7 @@ PlayerSettings:
   ps4DownloadDataSize: 0
   ps4GarlicHeapSize: 2048
   ps4ProGarlicHeapSize: 2560
-  ps4Passcode: bEWRK5RhRXdCdG5nG5azdNMK66MuCV6G
+  ps4Passcode: MuCV6GXi5xr84P2R391UXaLHbavJvFZG
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
@@ -503,7 +503,7 @@ PlayerSettings:
   psp2LiveAreaTrialPath: 
   psp2PatchChangeInfoPath: 
   psp2PatchOriginalPackage: 
-  psp2PackagePassword: Xi5xr84P2R391UXaLHbavJvFZGfO47XW
+  psp2PackagePassword: fO47XWS2qVOw5lxuBEBNue7b9PZS0hoI
   psp2KeystoneFile: 
   psp2MemoryExpansionMode: 0
   psp2DRMType: 0
@@ -630,12 +630,11 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled:
-    UNet: 1
+  cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: f2cf6d22-6688-4ce7-9901-eac60be70b01
-  projectName: jye64_SE2250_ProjectPart1
+  cloudProjectId: 5b4a2130-bfc8-4810-84c4-8e6c0b3ca253
+  projectName: jye64_SE2250_ProjectPart1 (1)
   organizationId: claudioye
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

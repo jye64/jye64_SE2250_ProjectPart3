@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour {
+
 	static public Hero S;
 
 	[Header("Set in Inspector")]
@@ -37,5 +38,6 @@ public class Hero : MonoBehaviour {
 		transform.position = pos;
 
 		transform.rotation = Quaternion.Euler (yAsix * pitchMult, xAxis * rollMult, 0);
+		
 	}
 }
