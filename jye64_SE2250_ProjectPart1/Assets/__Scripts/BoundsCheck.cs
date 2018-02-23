@@ -52,11 +52,6 @@ public class BoundsCheck : MonoBehaviour {
 			offDown = true;
 		}
 
-		if (keepOnScreen && !isOnScreen) {
-			transform.position = pos;
-			isOnScreen = true;
-		}
-
 		isOnScreen = !(offRight || offLeft || offUp || offDown);
 		if (keepOnScreen && !isOnScreen) {
 			transform.position = pos;

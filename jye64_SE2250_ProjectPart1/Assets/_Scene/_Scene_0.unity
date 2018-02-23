@@ -304,10 +304,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1345511528}
   - component: {fileID: 1345511527}
-  - component: {fileID: 1345511526}
-  - component: {fileID: 1345511525}
   - component: {fileID: 1345511529}
   - component: {fileID: 1345511530}
+  - component: {fileID: 1345511526}
+  - component: {fileID: 1345511525}
   m_Layer: 0
   m_Name: _MainCamera
   m_TagString: MainCamera
@@ -411,6 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEnemies:
   - {fileID: 1755949202620640, guid: 25aa78e6693604740a36a23cce650ce5, type: 2}
+  - {fileID: 1517268337290682, guid: 1dfca8f9c42f94c26ab4e5c92a61693c, type: 2}
   enemySpawnPerSecond: 0.5
   enemyDefaultPadding: 1.5
 --- !u!1 &1392257419

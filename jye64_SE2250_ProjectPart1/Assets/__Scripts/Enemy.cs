@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour {
 	public float health = 10;
 	public int score = 100;
 
-	private BoundsCheck bndCheck;
+	protected BoundsCheck bndCheck;
 
 	void Awake(){
 		bndCheck = GetComponent<BoundsCheck> ();
@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Move ();
-
 		if (bndCheck != null && bndCheck.offDown) {
 			if (pos.y < bndCheck.camHeight - bndCheck.radius) {
 				Destroy (gameObject);
@@ -46,4 +45,6 @@ public class Enemy : MonoBehaviour {
 		tempPos.y -= speed*Time.deltaTime;
 		pos = tempPos;
 	}
+
+
 }

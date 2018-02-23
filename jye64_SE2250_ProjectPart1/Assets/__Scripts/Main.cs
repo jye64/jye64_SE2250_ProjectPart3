@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class Main : MonoBehaviour {
 
 	public void SpawnEnemy(){
 		int ndx = Random.Range (0, prefabEnemies.Length);
-		GameObject go = Instantiate<GameObject>(prefabEnemies[ndx]);
+		GameObject go = Instantiate<GameObject> (prefabEnemies [ndx]);
 
 		float enemyPadding = enemyDefaultPadding;
 		if (go.GetComponent<BoundsCheck> () != null) {
@@ -36,6 +37,7 @@ public class Main : MonoBehaviour {
 		go.transform.position = pos;
 
 		Invoke ("SpawnEnemy", 1f / enemySpawnPerSecond);
+
 	}
 
 	// Use this for initialization
