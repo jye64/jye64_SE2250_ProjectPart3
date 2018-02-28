@@ -9,9 +9,9 @@ public class Enemy_1 : Enemy {
 	[HideInInspector]
 	public bool direction;
 
-	public float radius = 1f;
-	public float camWidth;
-	public float camHeight;
+	private float radius = 1f;
+	private float camWidth;
+	private float camHeight;
 
 	void Awake(){
 		camHeight = Camera.main.orthographicSize;
