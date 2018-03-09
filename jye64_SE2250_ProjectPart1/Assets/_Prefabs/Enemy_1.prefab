@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33088247781678900}
   - component: {fileID: 135628151810935296}
   - component: {fileID: 23534760730419562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33311539610612292}
   - component: {fileID: 136695258020689566}
   - component: {fileID: 23010455224558428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MissileL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,9 +58,9 @@ GameObject:
   - component: {fileID: 54605300353843650}
   - component: {fileID: 114141699128239762}
   - component: {fileID: 114275553436009394}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 33179722665533162}
   - component: {fileID: 136984387945122604}
   - component: {fileID: 23448034551480356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MissileR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 33186213194158120}
   - component: {fileID: 135064218969020552}
   - component: {fileID: 23197549598683230}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fuselage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 33883599900813552}
   - component: {fileID: 135940460780731432}
   - component: {fileID: 23744202765836500}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 33836920875432530}
   - component: {fileID: 136547445870492374}
   - component: {fileID: 23769953155506492}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stringer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 33841416145763728}
   - component: {fileID: 135065773265971564}
   - component: {fileID: 23577732725357744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,9 +604,6 @@ MonoBehaviour:
   health: 10
   score: 100
   direction: 0
-  radius: 1
-  camWidth: 0
-  camHeight: 0
 --- !u!135 &135064218969020552
 SphereCollider:
   m_ObjectHideFlags: 1

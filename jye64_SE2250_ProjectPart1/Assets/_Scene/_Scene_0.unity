@@ -121,12 +121,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1086499453}
-  - component: {fileID: 1086499455}
   - component: {fileID: 1086499454}
+  - component: {fileID: 1086499455}
   - component: {fileID: 1086499456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: _Hero
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +176,11 @@ MonoBehaviour:
   speed: 30
   rollMult: -45
   pitchMult: 30
-  shieldLevel: 1
+  gameRestartDelay: 2
+  projectilePrefab: {fileID: 1517225368455774, guid: bfbed9d4665554428abace5f42af69f5,
+    type: 2}
+  projectileSpeed: 40
+  _shieldLevel: 1
 --- !u!114 &1086499456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100ddf4c2d80b437b8ea589bcab69d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.3
+  radius: 4
   keepOnScreen: 1
   isOnScreen: 1
   camWidth: 0
@@ -209,13 +213,13 @@ GameObject:
   - component: {fileID: 1217413975}
   - component: {fileID: 1217413974}
   - component: {fileID: 1217413977}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1217413973
 Transform:
   m_ObjectHideFlags: 0
@@ -236,7 +240,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1217413972}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -425,7 +429,7 @@ GameObject:
   - component: {fileID: 1392257423}
   - component: {fileID: 1392257422}
   - component: {fileID: 1392257421}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +514,7 @@ GameObject:
   - component: {fileID: 1501612762}
   - component: {fileID: 1501612761}
   - component: {fileID: 1501612760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +598,7 @@ GameObject:
   - component: {fileID: 1536763641}
   - component: {fileID: 1536763640}
   - component: {fileID: 1536763639}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

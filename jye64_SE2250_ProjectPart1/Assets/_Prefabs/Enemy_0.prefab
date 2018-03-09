@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33638641969833590}
   - component: {fileID: 65127270065930518}
   - component: {fileID: 23308211205563778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BridgeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33538670215611318}
   - component: {fileID: 136777958526526342}
   - component: {fileID: 23229767311157282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BridgeM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33198752011628902}
   - component: {fileID: 65902070179983606}
   - component: {fileID: 23344458753821530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BridgeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,9 +76,9 @@ GameObject:
   - component: {fileID: 54789685377415742}
   - component: {fileID: 114018548751968824}
   - component: {fileID: 114047241993460468}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 33526339328277632}
   - component: {fileID: 135089997914469564}
   - component: {fileID: 23358761526798522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CockpitR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 33543582430180328}
   - component: {fileID: 135395757654054662}
   - component: {fileID: 23781429069595740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 33191463541425366}
   - component: {fileID: 135507944149318950}
   - component: {fileID: 23787452137236326}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CockpitL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 33580448673147424}
   - component: {fileID: 135668677456652438}
   - component: {fileID: 23814624899701716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
