@@ -20,12 +20,18 @@ public class Hero : MonoBehaviour {
 
 	private GameObject lastTriggerGo = null;
 
+
+	public delegate void WeaponFireDelegate ();
+
+	public WeaponFireDelegate fireDelegate;
+
 	void Awake(){
 		if (S == null) {
 			S = this;
 		} else {
 			Debug.LogError ("Hero.Awake() - Attempted to assign second Hero.S!");
 		}
+		fireDelegate += TempFire;
 	}
 
 	// Use this for initialization
@@ -45,24 +51,46 @@ public class Hero : MonoBehaviour {
 
 		transform.rotation = Quaternion.Euler (yAsix * pitchMult, xAxis * rollMult, 0);
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			TempFire ();
+		if (Input.GetAxis("Jump") == 1 && fireDelegate !=null){
+			fireDelegate();
 		}
-		
 	}
 
+
 	void TempFire(){
-		GameObject projGO = Instantiate<GameObject> (projectilePrefab);
-		projGO.transform.position = transform.position;
-		Rigidbody rigidB = projGO.GetComponent<Rigidbody> ();
-		rigidB.velocity = Vector3.up * projectileSpeed;
+		GameObject[] gameOB = new GameObject[3];
+		for (int i = 0; i <= 2; i++) {
+			gameOB [i] = Instantiate<GameObject> (projectilePrefab);
+			gameOB [i].transform.position = transform.position;
+		}
+		Rigidbody rigidB1 = gameOB [0].GetComponent<Rigidbody> ();
+		Rigidbody rigidB2 = gameOB [1].GetComponent<Rigidbody> ();
+		Rigidbody rigidB3 = gameOB [2].GetComponent<Rigidbody> ();
+
+//		rigidB1.velocity = Vector3.up * projectileSpeed;
+//		rigidB2.velocity = new Vector3 (0.5f, 1, 0) * projectileSpeed;
+//		rigidB3.velocity = new Vector3 (-0.5f, 1, 0) * projectileSpeed;
+
+		Projectile proj1 = gameOB [0].GetComponent<Projectile> ();
+		Projectile proj2 = gameOB [1].GetComponent<Projectile> ();
+		Projectile proj3 = gameOB [2].GetComponent<Projectile> ();
+
+		proj1.type = WeaponType.blaster;
+		proj2.type = WeaponType.blaster;
+		proj3.type = WeaponType.blaster;
+
+		float tSpeed = Main.GetWeaponDefinition (proj1.type).velocity;
+
+		rigidB1.velocity = Vector3.up * tSpeed;
+		rigidB2.velocity = new Vector3 (0.5f, 1, 0) * tSpeed;
+		rigidB3.velocity = new Vector3 (-0.5f, 1, 0) * tSpeed;
+
 
 	}
 
 	void OnTriggerEnter(Collider other){
 		Transform rootT = other.gameObject.transform.root;
 		GameObject go = rootT.gameObject;
-		//print("Triggered: " +go.name);
 
 		if (go == lastTriggerGo) {
 			return;
