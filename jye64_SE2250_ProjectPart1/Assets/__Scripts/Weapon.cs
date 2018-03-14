@@ -32,8 +32,8 @@ public class WeaponDefinition{
 	public Color         color = Color.white;
 	public GameObject    projectileprefab;
 	public Color         projectileColor = Color.white;
-	public float         damegeOnHit = 0;
-	public float         continuousDamege = 0;
+	public float         damageOnHit = 0;
+	public float         continuousDamage = 0;
 	public float         delayBetweenShots = 0;
 	public float         velocity = 20;
 }
@@ -67,6 +67,7 @@ public class Weapon : MonoBehaviour {
 		if (rootGO.GetComponent<Hero> () != null) {
 			rootGO.GetComponent<Hero>().fireDelegate += Fire;     //add Fire to firedelagate
 		}
+			
 	}
 
 	public WeaponType type{
@@ -146,6 +147,11 @@ public class Weapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown(KeyCode.Alpha1)){
+			type = WeaponType.blaster;
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			type = WeaponType.spread;
+		}
 	}
 }

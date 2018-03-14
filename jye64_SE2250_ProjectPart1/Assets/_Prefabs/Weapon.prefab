@@ -202,8 +202,8 @@ MonoBehaviour:
     color: {r: 1, g: 1, b: 1, a: 1}
     projectileprefab: {fileID: 0}
     projectileColor: {r: 1, g: 1, b: 1, a: 1}
-    damegeOnHit: 0
-    continuousDamege: 0
+    damageOnHit: 0
+    continuousDamage: 0
     delayBetweenShots: 0
     velocity: 20
   collar: {fileID: 0}

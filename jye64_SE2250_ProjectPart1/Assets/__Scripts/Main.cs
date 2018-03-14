@@ -69,7 +69,7 @@ public class Main : MonoBehaviour {
 		if (WEAP_DICT.ContainsKey (wt)) {
 			return (WEAP_DICT [wt]);
 		}
-		return (new WeaponDefinition ());
+		return (new WeaponDefinition());
 	}
 
 	// Use this for initialization

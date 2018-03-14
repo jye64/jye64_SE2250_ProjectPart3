@@ -84,7 +84,7 @@ public class Hero : MonoBehaviour {
 		}
 	}
 
-
+	//The following is replaced by the Fire method defined in Weapon class
 	//	void TempFire(){
 	//		GameObject[] gameOB = new GameObject[3];
 	//		for (int i = 0; i <= 2; i++) {

@@ -431,8 +431,8 @@ MonoBehaviour:
     projectileprefab: {fileID: 1517225368455774, guid: bfbed9d4665554428abace5f42af69f5,
       type: 2}
     projectileColor: {r: 0.99264705, g: 1, b: 1, a: 1}
-    damegeOnHit: 1
-    continuousDamege: 0
+    damageOnHit: 1
+    continuousDamage: 0
     delayBetweenShots: 0.2
     velocity: 50
   - type: 2
@@ -441,8 +441,8 @@ MonoBehaviour:
     projectileprefab: {fileID: 1517225368455774, guid: bfbed9d4665554428abace5f42af69f5,
       type: 2}
     projectileColor: {r: 0.0068122903, g: 0.7361962, b: 0.9264706, a: 1}
-    damegeOnHit: 1
-    continuousDamege: 0
+    damageOnHit: 2
+    continuousDamage: 0
     delayBetweenShots: 0.4
     velocity: 50
   - type: 6
@@ -450,8 +450,8 @@ MonoBehaviour:
     color: {r: 0.18079582, g: 0.85294116, b: 0.15679064, a: 1}
     projectileprefab: {fileID: 0}
     projectileColor: {r: 0.99264705, g: 0.99264705, b: 0.99264705, a: 1}
-    damegeOnHit: 0
-    continuousDamege: 0
+    damageOnHit: 1
+    continuousDamage: 0
     delayBetweenShots: 0
     velocity: 0
 --- !u!1 &1392257419
@@ -577,11 +577,6 @@ Prefab:
     - target: {fileID: 4822203895161858, guid: b4d1473b5962e497ca7a589098791090, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114965989570800630, guid: b4d1473b5962e497ca7a589098791090,
-        type: 2}
-      propertyPath: _type
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4d1473b5962e497ca7a589098791090, type: 2}
