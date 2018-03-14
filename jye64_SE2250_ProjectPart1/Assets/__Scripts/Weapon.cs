@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour {
 
 		GameObject rootGO = transform.root.gameObject;
 		if (rootGO.GetComponent<Hero> () != null) {
-			rootGO.GetComponent<Hero>().fireDelegate += Fire;
+			rootGO.GetComponent<Hero>().fireDelegate += Fire;     //add Fire to firedelagate
 		}
 	}
 
@@ -98,28 +98,50 @@ public class Weapon : MonoBehaviour {
 		if (transform.up.y < 0) {
 			vel.y = -vel.y;
 		}
-//
-//		switch (type) {
-//
-//		case WeaponType.blaster;
-//			p = MakeProjectile();
-//			p.rigid.velocity = vel;
-//			break;
-//
-//		case WeaponType.spread;
-//			p = MakeProjectiel();
-//			p.rigid.velocity = vel;
-//
-//
-//		
-//		}
 
+		switch (type) {
+
+		case WeaponType.blaster:    //three bullets, one straight up, the other two 30 degrees to left&right
+			p = MakeProjectile ();
+			p.rigid.velocity = vel;
+			p = MakeProjectile ();
+			p.transform.rotation = Quaternion.AngleAxis (30, Vector3.back);
+			p.rigid.velocity = p.transform.rotation * vel;
+			p = MakeProjectile ();
+			p.transform.rotation = Quaternion.AngleAxis (-30, Vector3.back);
+			p.rigid.velocity = p.transform.rotation * vel;
+			break;
+
+		case WeaponType.spread:
+			p = MakeProjectile();
+			p.rigid.velocity = vel;
+			p  = MakeProjectile();
+			p.transform.rotation = Quaternion.AngleAxis(10, Vector3.back);
+			p.rigid.velocity = p.transform.rotation*vel;
+			p = MakeProjectile();
+			p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
+			p.rigid.velocity = p.transform.rotation*vel;
+			break;
+		}
 
 	}
 
-//	public Projectile MakeProjectiel(){
-//		
-//	}
+	public Projectile MakeProjectile(){
+		GameObject go = Instantiate<GameObject> (def.projectileprefab);
+		if (transform.parent.gameObject.tag == "Hero") {
+			go.tag = "ProjectileHero";
+			go.layer = LayerMask.NameToLayer ("ProjectileHero");
+		} else {
+			go.tag = "ProjectileEnemy";
+			go.layer = LayerMask.NameToLayer("ProjectileEnemy");
+		}
+		go.transform.position = collar.transform.position;
+		go.transform.SetParent(PROJECTILE_ANCHOR, true);
+		Projectile p = go.GetComponent<Projectile>();
+		p.type = type;
+		lastShotTime =Time.time;
+		return(p);
+	}
 		
 	
 	// Update is called once per frame
