@@ -11,7 +11,8 @@ using UnityEngine;
 
 public enum WeaponType{
 	none,        //default
-	blaster,     //a simple blaster
+	simple,      //simply creating bullets, all moving upwards
+	blaster,     //a simple blaster, three bullets, one upward, one to left 30 ,one to right 30
 	spread,      //two shots simultaneously
 	phaser,      //[NT] shots that move in waves
 	missile,     //[NT] homing missiles
@@ -102,25 +103,19 @@ public class Weapon : MonoBehaviour {
 
 		switch (type) {
 
-		case WeaponType.blaster:    //three bullets, one straight up, the other two 30 degrees to left&right
+		case WeaponType.simple:      //bullets move upwards
 			p = MakeProjectile ();
 			p.rigid.velocity = vel;
-			p = MakeProjectile ();
-			p.transform.rotation = Quaternion.AngleAxis (30, Vector3.back);
-			p.rigid.velocity = p.transform.rotation * vel;
-			p = MakeProjectile ();
-			p.transform.rotation = Quaternion.AngleAxis (-30, Vector3.back);
-			p.rigid.velocity = p.transform.rotation * vel;
 			break;
-
-		case WeaponType.spread:
+			 
+		case WeaponType.blaster:      //three bullets, one straight up, the other two 30 degrees to left&right
 			p = MakeProjectile();
 			p.rigid.velocity = vel;
 			p  = MakeProjectile();
-			p.transform.rotation = Quaternion.AngleAxis(10, Vector3.back);
+			p.transform.rotation = Quaternion.AngleAxis(30, Vector3.back);
 			p.rigid.velocity = p.transform.rotation*vel;
 			p = MakeProjectile();
-			p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
+			p.transform.rotation = Quaternion.AngleAxis(-30, Vector3.back);
 			p.rigid.velocity = p.transform.rotation*vel;
 			break;
 		}
@@ -148,10 +143,10 @@ public class Weapon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Alpha1)){
-			type = WeaponType.blaster;
+			type = WeaponType.simple;
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha2)) {
-			type = WeaponType.spread;
+			type = WeaponType.blaster;
 		}
 	}
 }
