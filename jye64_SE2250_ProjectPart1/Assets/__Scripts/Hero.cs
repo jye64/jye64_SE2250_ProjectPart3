@@ -80,40 +80,10 @@ public class Hero : MonoBehaviour {
 			if (value < 0) {
 				Destroy (this.gameObject);
 				Main.S.DelayedRestart (gameRestartDelay);
+				Main.S.setHighScoreText ();   
 			}
 		}
 	}
-
-	//The following is replaced by the Fire method defined in Weapon class
-	//	void TempFire(){
-	//		GameObject[] gameOB = new GameObject[3];
-	//		for (int i = 0; i <= 2; i++) {
-	//			gameOB [i] = Instantiate<GameObject> (projectilePrefab);
-	//			gameOB [i].transform.position = transform.position;
-	//		}
-	//		Rigidbody rigidB1 = gameOB [0].GetComponent<Rigidbody> ();
-	//		Rigidbody rigidB2 = gameOB [1].GetComponent<Rigidbody> ();
-	//		Rigidbody rigidB3 = gameOB [2].GetComponent<Rigidbody> ();
-	//
-	////		rigidB1.velocity = Vector3.up * projectileSpeed;
-	////		rigidB2.velocity = new Vector3 (0.5f, 1, 0) * projectileSpeed;
-	////		rigidB3.velocity = new Vector3 (-0.5f, 1, 0) * projectileSpeed;
-	//
-	//		Projectile proj1 = gameOB [0].GetComponent<Projectile> ();
-	//		Projectile proj2 = gameOB [1].GetComponent<Projectile> ();
-	//		Projectile proj3 = gameOB [2].GetComponent<Projectile> ();
-	//
-	//		proj1.type = WeaponType.blaster;
-	//		proj2.type = WeaponType.blaster;
-	//		proj3.type = WeaponType.blaster;
-	//
-	//		float tSpeed = Main.GetWeaponDefinition (proj1.type).velocity;
-	//
-	//		rigidB1.velocity = Vector3.up * tSpeed;
-	//		rigidB2.velocity = new Vector3 (0.5f, 1, 0) * tSpeed;
-	//		rigidB3.velocity = new Vector3 (-0.5f, 1, 0) * tSpeed;
-	//
-	//
-	//	}
+		
 
 }

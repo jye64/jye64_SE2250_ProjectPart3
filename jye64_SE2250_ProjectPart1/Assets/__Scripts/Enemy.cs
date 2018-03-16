@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -9,7 +8,7 @@ public class Enemy : MonoBehaviour {
 	public float speed = 10f;
 	public float fireRate = 0.3f;
 	public float health = 10;
-	public int score = 100;
+	public int score = 100;    
 
 	protected BoundsCheck bndCheck;
 
@@ -61,6 +60,7 @@ public class Enemy : MonoBehaviour {
 			health -= Main.GetWeaponDefinition (p.type).damageOnHit;
 			if (health <= 0) {
 				Destroy (this.gameObject);
+				Main.S.setScoreText (score);    //when enemy get destroyed, add score to scoreCounter
 			}
 			Destroy (otherGO);
 			break;

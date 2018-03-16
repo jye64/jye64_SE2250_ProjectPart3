@@ -44,7 +44,4 @@ public class Enemy_1 : Enemy {
 		base.Move ();
 	}
 
-
-
-
 }
