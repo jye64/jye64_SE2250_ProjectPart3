@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
@@ -14,6 +15,13 @@ public class Main : MonoBehaviour {
 	public float enemyDefaultPadding = 1.5f;
 	public WeaponDefinition[] weaponDefinitions;
 
+	[Header("Set in Inspector: Text")]
+	public Text scoreText;
+	private int _scoreCounter = 0;
+
+	public Text highScoreText;
+	static private int _highScoreCounter = 0;
+	 
 	private BoundsCheck bndCheck;
 
 	void Awake(){
@@ -74,11 +82,26 @@ public class Main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		setScoreText (0);
+		setHighScoreText ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
+
+	public void setScoreText(int input){
+		_scoreCounter += input;
+		scoreText.text = "Score: " + _scoreCounter.ToString ();
+	}
+
+	public void setHighScoreText(){
+		if (_scoreCounter > _highScoreCounter) {
+			_highScoreCounter = _scoreCounter;
+		}
+		highScoreText.text = "High Score: " + "\n" +_highScoreCounter.ToString ();
+	}
+
+
 }
