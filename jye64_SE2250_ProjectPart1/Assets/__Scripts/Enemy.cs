@@ -9,11 +9,26 @@ public class Enemy : MonoBehaviour {
 	public float fireRate = 0.3f;
 	public float health = 10;
 	public int score = 100;    
+	public float showDamageDuration = 0.1f;
+
+	[Header("Set Dynamically: Enemy")]
+	public Color[] originalColors;
+	public Material[] materials;
+	public bool showingDamage = false;
+	public float damageDoneTime;  //time to stop showing damage
+	public bool notifiedOdDestruction = false;
 
 	protected BoundsCheck bndCheck;
 
-	void Awake(){
+	public virtual void Awake(){
 		bndCheck = GetComponent<BoundsCheck> ();
+
+		//Get materials and colors for this GameObject and its children
+		materials = Utils.GetAllMaterials(gameObject);
+		originalColors = new Color[materials.Length];
+		for (int i = 0; i < materials.Length; i++) {
+			originalColors [i] = materials [i].color;
+		}
 	}
 
 	public Vector3 pos{
@@ -33,6 +48,11 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Move ();
+
+		if (showingDamage && Time.time > damageDoneTime) {
+			UnShowDamage ();
+		}
+
 		if (bndCheck != null && bndCheck.offDown) {
 			if (pos.y < bndCheck.camHeight - bndCheck.radius) {
 				Destroy (gameObject);
@@ -62,6 +82,7 @@ public class Enemy : MonoBehaviour {
 				Destroy (this.gameObject);
 				Main.S.setScoreText (score);    //when enemy get destroyed, add score to scoreCounter
 			}
+			ShowDamage ();   
 			Destroy (otherGO);
 			break;
 
@@ -71,6 +92,21 @@ public class Enemy : MonoBehaviour {
 
 		}
 		
+	}
+
+	void ShowDamage(){
+		foreach (Material m in materials) {
+			m.color = Color.red;
+		}
+		showingDamage = true;
+		damageDoneTime = Time.time + showDamageDuration;
+	}
+
+	void UnShowDamage(){
+		for (int i = 0; i < materials.Length; i++) {
+			materials [i].color = originalColors [i];
+		}
+		showingDamage = false;
 	}
 
 }

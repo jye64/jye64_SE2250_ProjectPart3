@@ -13,10 +13,11 @@ public class Enemy_1 : Enemy {
 	private float camWidth;
 	private float camHeight;
 
-	void Awake(){
+	public override void Awake(){
 		camHeight = Camera.main.orthographicSize;
 		camWidth = camHeight * Camera.main.aspect;
 		bndCheck = GetComponent<BoundsCheck> ();
+		base.Awake ();
 	}
 
 	void Start(){
@@ -31,12 +32,12 @@ public class Enemy_1 : Enemy {
 		
 		if (direction == true) {
 			transform.Translate(new Vector3(-1*Time.deltaTime*10, 0, 0)); // left
-			if (pos.x < -camWidth + radius){
+			if (pos.x < -camWidth + radius+3){
 				direction = false; //change to right
 			}
 		} else {
 			transform.Translate(new Vector3(1*Time.deltaTime*10, 0, 0)); // right
-			if (pos.x > camWidth -radius){
+			if (pos.x > camWidth -radius-3){
 				direction = true; //change to left
 			}
 		}
