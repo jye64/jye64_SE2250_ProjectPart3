@@ -627,7 +627,13 @@ MonoBehaviour:
   fireRate: 0.3
   health: 15
   score: 100
-  scoreText: {fileID: 0}
+  showDamageDuration: 0.1
+  powerUpDropChance: 0.3
+  originalColors: []
+  materials: []
+  showingDamage: 0
+  damageDoneTime: 0
+  notifiedOdDestruction: 0
 --- !u!135 &135089997914469564
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -20,10 +20,6 @@ public class Utils : MonoBehaviour {
 
 
 
-
-
-
-
 	// Use this for initialization
 	void Start () {
 		

@@ -603,6 +603,13 @@ MonoBehaviour:
   fireRate: 0.3
   health: 5
   score: 50
+  showDamageDuration: 0.1
+  powerUpDropChance: 0.2
+  originalColors: []
+  materials: []
+  showingDamage: 0
+  damageDoneTime: 0
+  notifiedOdDestruction: 0
   direction: 0
 --- !u!135 &135064218969020552
 SphereCollider:

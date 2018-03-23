@@ -14,15 +14,32 @@ public class Main : MonoBehaviour {
 	public float enemySpawnPerSecond = 0.5f;
 	public float enemyDefaultPadding = 1.5f;
 	public WeaponDefinition[] weaponDefinitions;
+	public GameObject prefabPowerUp;
+	public WeaponType[]   powerUpFrequency = new WeaponType[]{
+		WeaponType.simple, WeaponType.blaster, WeaponType.blaster, WeaponType.shield
+	};
 
+	private BoundsCheck bndCheck;
+
+	public void ShipDestroyed(Enemy e){
+		if (Random.value <= e.powerUpDropChance){      // manage PowerUp drop chance, set in inspector
+			//choose which powerup to drop
+			int ndx = Random.Range(0, powerUpFrequency.Length);
+			WeaponType puType = powerUpFrequency [ndx];
+			GameObject go = Instantiate (prefabPowerUp) as GameObject;
+			PowerUp pu = go.GetComponent<PowerUp> ();
+			pu.SetType (puType);
+
+			pu.transform.position = e.transform.position;
+		}
+	}
+		
 	[Header("Set in Inspector: Text")]
 	public Text scoreText;
 	private int _scoreCounter = 0;
 
 	public Text highScoreText;
 	static private int _highScoreCounter = 0;
-	 
-	private BoundsCheck bndCheck;
 
 	void Awake(){
 		S = this;
