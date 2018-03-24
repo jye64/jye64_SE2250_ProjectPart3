@@ -10,7 +10,7 @@ public class Main : MonoBehaviour {
 	static Dictionary<WeaponType, WeaponDefinition> WEAP_DICT;
 
 	[Header("Set in Inspector")]
-	public GameObject[] prefabEnemies;          //array of Enemy prefabs
+	public GameObject[] prefabEnemies;          
 	public float enemySpawnPerSecond = 0.5f;
 	public float enemyDefaultPadding = 1.5f;
 	public WeaponDefinition[] weaponDefinitions;
@@ -38,6 +38,9 @@ public class Main : MonoBehaviour {
 	public Text scoreText;
 	private int _scoreCounter = 0;
 
+	public Text levelText;
+	private int _levelCounter = 1;
+
 	public Text highScoreText;
 	static private int _highScoreCounter = 0;
 
@@ -55,7 +58,6 @@ public class Main : MonoBehaviour {
 	}
 
 	public void SpawnEnemy(){
-		//pick a random Enemy  prefab to instantiate
 		int ndx = Random.Range (0, prefabEnemies.Length);
 		GameObject go = Instantiate<GameObject> (prefabEnemies [ndx]);
 
@@ -107,6 +109,7 @@ public class Main : MonoBehaviour {
 	void Start () {
 		setScoreText (0);
 		setHighScoreText ();
+		setLevelText ();
 	}
 	
 	// Update is called once per frame
@@ -124,6 +127,19 @@ public class Main : MonoBehaviour {
 			_highScoreCounter = _scoreCounter;
 		}
 		highScoreText.text = "High Score: " + "\n" +_highScoreCounter.ToString ();
+	}
+
+	public void setLevelText(){
+		if (_scoreCounter > 1200){
+			_levelCounter = 2;
+			levelText.text = "Level: " + _levelCounter.ToString();
+		}else{
+			levelText.text = "Level : 1";
+		}
+	}
+
+	public int getScoreCounter(){
+		return _scoreCounter;
 	}
 
 

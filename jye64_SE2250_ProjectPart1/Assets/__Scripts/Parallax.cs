@@ -15,6 +15,9 @@ public class Parallax : MonoBehaviour {
 	private float panelHt;
 	private float depth;
 
+	[Header("Set in Inspector")]
+	public GameObject[] panelsNextLevel;  //background for next level
+
 	// Use this for initialization
 	void Start () {
 		panelHt = panels[0].transform.localScale.y;
@@ -27,6 +30,11 @@ public class Parallax : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		if (Main.S.getScoreCounter()>1200){
+			panels = panelsNextLevel;
+		}
+
 		float tY, tX = 0;
 		tY = Time.time * scrollSpeed % panelHt + (panelHt * 0.5f);
 

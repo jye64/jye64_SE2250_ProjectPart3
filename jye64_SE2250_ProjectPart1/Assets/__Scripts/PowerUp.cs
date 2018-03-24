@@ -11,7 +11,7 @@ public class PowerUp : MonoBehaviour {
 	public float fadeTime = 4f;
 
 	[Header("Set Dynamically")]
-	public WeaponType type;   //type of PowerUp
+	public WeaponType type;  
 	public GameObject cube;   //reference to the Cube child
 	public TextMesh   letter;  //reference to the TextMesh
 	public Vector3 rotPerSecond;  //Euler rotation speed
@@ -22,7 +22,6 @@ public class PowerUp : MonoBehaviour {
 	private Renderer cubeRend;
 
 	void Awake(){
-		
 		cube = transform.Find("Cube").gameObject;
 		letter = GetComponent<TextMesh>();
 		rigid = GetComponent<Rigidbody> ();
@@ -35,7 +34,7 @@ public class PowerUp : MonoBehaviour {
 		vel *= Random.Range (driftMinMax.x, driftMinMax.y);
 		rigid.velocity = vel;
 
-		transform.rotation = Quaternion.identity;  //set rotation to 0,0,0
+		transform.rotation = Quaternion.identity; 
 		rotPerSecond = new Vector3(Random.Range(rotMinMax.x, rotMinMax.y),
 			Random.Range(rotMinMax.x, rotMinMax.y),
 			Random.Range(rotMinMax.x, rotMinMax.y));
@@ -45,7 +44,6 @@ public class PowerUp : MonoBehaviour {
 
 	void Update(){
 		cube.transform.rotation = Quaternion.Euler (rotPerSecond * Time.time);
-
 		float u = (Time.time - (birthTime + lifeTime)) / fadeTime;
 
 		if (u >= 1) {

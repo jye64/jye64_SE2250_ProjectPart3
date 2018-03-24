@@ -85,7 +85,8 @@ public class Enemy : MonoBehaviour {
 				}
 				notifiedOdDestruction = true;
 				Destroy (this.gameObject);
-				Main.S.setScoreText (score);    //when enemy get destroyed, add score to scoreCounter
+				Main.S.setScoreText (score);  
+				Main.S.setLevelText ();
 			}
 			ShowDamage ();   
 			Destroy (otherGO);
