@@ -71,6 +71,7 @@ public class BoundsCheck : MonoBehaviour {
 		
 	}
 
+	//draw the bounds in the scene pane using OnDrawGizmos()
 	void OnDrawGizmos(){
 		if (!Application.isPlaying)
 			return;

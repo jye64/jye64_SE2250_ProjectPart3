@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Scrolling Background
+
 public class Parallax : MonoBehaviour {
 
 	[Header("Set in Inspector")]

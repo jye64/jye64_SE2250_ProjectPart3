@@ -623,12 +623,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7feaaa63d8314d05885ea00f58dcae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 8
   fireRate: 0.3
-  health: 15
+  health: 12
   score: 100
   showDamageDuration: 0.1
-  powerUpDropChance: 0.3
+  powerUpDropChance: 0.4
   originalColors: []
   materials: []
   showingDamage: 0

@@ -72,7 +72,7 @@ public class Hero : MonoBehaviour {
 		}
 	}
 
-	public void AbsorbPowerUp(GameObject go){
+	public void AbsorbPowerUp(GameObject go){      
 		PowerUp pu = go.GetComponent<PowerUp> ();
 		switch (pu.type) {
 
@@ -81,12 +81,12 @@ public class Hero : MonoBehaviour {
 			break;
 
 		default:
-			if (pu.type == weapons [0].type) {
+			if (pu.type == weapons [0].type) {      // if it's the same weapon type
 				Weapon w = GetEmptyWeaponSlot ();
 				if (w != null) {
 					w.SetType (pu.type);
 				}	
-			} else{
+			} else{                                //different weapon type, reset 
 				ClearWeapons ();
 				weapons [0].SetType (pu.type);
 			}

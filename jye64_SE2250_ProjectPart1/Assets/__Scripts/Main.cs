@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
-	static public Main S;
+	static public Main S;      // a singleton for Main
 	static Dictionary<WeaponType, WeaponDefinition> WEAP_DICT;
 
 	[Header("Set in Inspector")]
-	public GameObject[] prefabEnemies;
+	public GameObject[] prefabEnemies;          //array of Enemy prefabs
 	public float enemySpawnPerSecond = 0.5f;
 	public float enemyDefaultPadding = 1.5f;
 	public WeaponDefinition[] weaponDefinitions;
@@ -43,9 +43,11 @@ public class Main : MonoBehaviour {
 
 	void Awake(){
 		S = this;
+		//set bndCheck to reference the BoundsCheck component on this GameObject
 		bndCheck = GetComponent<BoundsCheck> ();
 		Invoke ("SpawnEnemy", 1f / enemySpawnPerSecond);
 
+		// A generic Dictionary with WeaponType as the key
 		WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition> ();
 		foreach (WeaponDefinition def in weaponDefinitions) {
 			WEAP_DICT [def.type] = def;
@@ -53,14 +55,17 @@ public class Main : MonoBehaviour {
 	}
 
 	public void SpawnEnemy(){
+		//pick a random Enemy  prefab to instantiate
 		int ndx = Random.Range (0, prefabEnemies.Length);
 		GameObject go = Instantiate<GameObject> (prefabEnemies [ndx]);
 
+		//position the Enemy above the screen with a random x position
 		float enemyPadding = enemyDefaultPadding;
 		if (go.GetComponent<BoundsCheck> () != null) {
 			enemyPadding = Mathf.Abs (go.GetComponent<BoundsCheck> ().radius);
 		}
 
+		//set initial position for the spawned Enemy
 		Vector3 pos = Vector3.zero;
 		float xMin = -bndCheck.camWidth + enemyPadding;
 		float xMax = bndCheck.camWidth + enemyPadding;
@@ -88,6 +93,7 @@ public class Main : MonoBehaviour {
 	/// the WeaponType passed in, returns a new WeaponDefinition with a 
 	/// WeaponType of none..</returns>
 	/// <param name="wt">The WeaponType of the desired WeaponDefinition </param>
+
 
 
 	static public WeaponDefinition GetWeaponDefinition (WeaponType wt){

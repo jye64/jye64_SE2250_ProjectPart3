@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour {
 		if (showingDamage && Time.time > damageDoneTime) {
 			UnShowDamage ();
 		}
-
+		 //check to make sure it's gone off the bottom of the screen
 		if (bndCheck != null && bndCheck.offDown) {
 			if (pos.y < bndCheck.camHeight - bndCheck.radius) {
 				Destroy (gameObject);

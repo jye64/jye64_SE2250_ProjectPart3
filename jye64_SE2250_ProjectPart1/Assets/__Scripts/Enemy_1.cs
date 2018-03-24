@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Enemy_1 extends the Enemy class
 
 public class Enemy_1 : Enemy {
 
@@ -33,12 +32,12 @@ public class Enemy_1 : Enemy {
 		if (direction == true) {
 			transform.Translate(new Vector3(-1*Time.deltaTime*10, 0, 0)); // left
 			if (pos.x < -camWidth + radius+3){
-				direction = false; //change to right
+				direction = false; //when hits the scene boundary, change direction
 			}
 		} else {
 			transform.Translate(new Vector3(1*Time.deltaTime*10, 0, 0)); // right
 			if (pos.x > camWidth -radius-3){
-				direction = true; //change to left
+				direction = true; //when hits the scene boundary, change direction
 			}
 		}
 			
