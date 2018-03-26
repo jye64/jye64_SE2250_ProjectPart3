@@ -15,9 +15,20 @@ public class Main : MonoBehaviour {
 	public float enemyDefaultPadding = 1.5f;
 	public WeaponDefinition[] weaponDefinitions;
 	public GameObject prefabPowerUp;
+	// Here is the array of available PowerUps
 	public WeaponType[]   powerUpFrequency = new WeaponType[]{
 		WeaponType.simple, WeaponType.blaster, WeaponType.blaster, WeaponType.shield
 	};
+		
+	[Header("Set in Inspector: Text")]
+	public Text scoreText;
+	private int _scoreCounter = 0;
+
+	public Text levelText;
+	private int _levelCounter = 1;
+
+	public Text highScoreText;
+	static private int _highScoreCounter = 0;
 
 	private BoundsCheck bndCheck;
 
@@ -33,16 +44,6 @@ public class Main : MonoBehaviour {
 			pu.transform.position = e.transform.position;
 		}
 	}
-		
-	[Header("Set in Inspector: Text")]
-	public Text scoreText;
-	private int _scoreCounter = 0;
-
-	public Text levelText;
-	private int _levelCounter = 1;
-
-	public Text highScoreText;
-	static private int _highScoreCounter = 0;
 
 	void Awake(){
 		S = this;
@@ -123,10 +124,11 @@ public class Main : MonoBehaviour {
 	}
 
 	public void setHighScoreText(){
-		if (_scoreCounter > _highScoreCounter) {
-			_highScoreCounter = _scoreCounter;
+		if (_scoreCounter > PlayerPrefs.GetInt("_highScoreCounter")) {
+//			_highScoreCounter = _scoreCounter;
+			PlayerPrefs.SetInt("_highScoreCounter", _scoreCounter);
 		}
-		highScoreText.text = "High Score: " + "\n" +_highScoreCounter.ToString ();
+		highScoreText.text = "High Score: " + "\n" + PlayerPrefs.GetInt("_highScoreCounter");
 	}
 
 	public void setLevelText(){
@@ -140,6 +142,10 @@ public class Main : MonoBehaviour {
 
 	public int getScoreCounter(){
 		return _scoreCounter;
+	}
+
+	public int getLecvelScounter(){
+		return _levelCounter;
 	}
 
 
