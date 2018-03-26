@@ -161,13 +161,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842622795813872}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: -0.076715805, y: -0, z: -0, w: 0.997053}
+  m_LocalPosition: {x: 0, y: 0.49667454, z: -0.043263536}
   m_LocalScale: {x: 5, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4575953398207404}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -8.8, y: 0, z: 0}
 --- !u!4 &4088749268656048
 Transform:
   m_ObjectHideFlags: 1
@@ -629,6 +629,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 0.4
+  explosion: {fileID: 100012, guid: 87429d2e1e9c84905b556d4343f12981, type: 2}
   originalColors: []
   materials: []
   showingDamage: 0
@@ -656,8 +657,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.44744796
+  m_Center: {x: 0.00403986, y: -0.5035634, z: -0.26011658}
 --- !u!135 &135507944149318950
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -680,8 +681,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.43006554
+  m_Center: {x: 0, y: 0.34967232, z: 0}
 --- !u!136 &136777958526526342
 CapsuleCollider:
   m_ObjectHideFlags: 1

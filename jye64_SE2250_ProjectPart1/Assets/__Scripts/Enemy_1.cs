@@ -8,16 +8,29 @@ public class Enemy_1 : Enemy {
 	[HideInInspector]
 	public bool direction;
 
+	[Header("Set in Inspector: Enemy_1")]
+	public float projectileSpeed = 40;
 	private float radius = 1f;
 	private float camWidth;
 	private float camHeight;
-
+	public float enemyShootingInterval = 2.0f;
+	public GameObject projectilePrefab;   //holding Enemy projectile  
+	public Weapon[] weapons;  
+  
 	public override void Awake(){
 		camHeight = Camera.main.orthographicSize;
 		camWidth = camHeight * Camera.main.aspect;
-		bndCheck = GetComponent<BoundsCheck> ();
+		bndCheck = GetComponent<BoundsCheck> (); 
 		base.Awake ();
 	}
+
+//	void EnemyFire(){
+//		GameObject projGO = Instantiate<GameObject>(projectilePrefab);
+//		projGO.transform.position = transform.position;
+//		Rigidbody rigidB = projGO.GetComponent<Rigidbody> ();
+//		Vector3 heroPosition = Hero.S.transform.position;
+//		rigidB.velocity = heroPosition * projectileSpeed;
+//	}
 
 	void Start(){
 		if (Random.Range (0f, 1.0f) < 0.5f) { //random left or right

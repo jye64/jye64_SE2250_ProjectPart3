@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour {
 	public int score = 100;    
 	public float showDamageDuration = 0.1f;
 	public float powerUpDropChance = 1f;
+	public GameObject explosion;
 
 	[Header("Set Dynamically: Enemy")]
 	public Color[] originalColors;
@@ -23,8 +24,6 @@ public class Enemy : MonoBehaviour {
 
 	public virtual void Awake(){
 		bndCheck = GetComponent<BoundsCheck> ();
-
-		//Get materials and colors for this GameObject and its children
 		materials = Utils.GetAllMaterials(gameObject);
 		originalColors = new Color[materials.Length];
 		for (int i = 0; i < materials.Length; i++) {
@@ -47,13 +46,13 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+    void Update () {
 		Move ();
 
 		if (showingDamage && Time.time > damageDoneTime) {
 			UnShowDamage ();
 		}
-		 //check to make sure it's gone off the bottom of the screen
+
 		if (bndCheck != null && bndCheck.offDown) {
 			if (pos.y < bndCheck.camHeight - bndCheck.radius) {
 				Destroy (gameObject);
@@ -84,8 +83,9 @@ public class Enemy : MonoBehaviour {
 					Main.S.ShipDestroyed (this);
 				}
 				notifiedOdDestruction = true;
+				Instantiate (explosion, transform.position, transform.rotation);
 				Destroy (this.gameObject);
-				Main.S.setScoreText (score);  
+				Main.S.setScoreText (score); 
 				Main.S.setLevelText ();
 			}
 			ShowDamage ();   

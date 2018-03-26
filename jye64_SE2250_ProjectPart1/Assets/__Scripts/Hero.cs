@@ -13,7 +13,8 @@ public class Hero : MonoBehaviour {
 	public float gameRestartDelay = 2f;
 	public GameObject projectilePrefab;
 	public float projectileSpeed = 40;
-	public Weapon[] weapons;
+	public Weapon[] weapons;           
+	public GameObject heroExplosion;
 
 	[Header("Set Dynamically")]
 	[SerializeField]
@@ -66,7 +67,9 @@ public class Hero : MonoBehaviour {
 			shieldLevel--;
 			Destroy (go);
 		} else if (go.tag == "PowerUp"){
-			AbsorbPowerUp (go);            // absorb a PowerUp
+			AbsorbPowerUp (go);          
+		} else if (go.tag == "ProjectileEnemy"){
+			shieldLevel--;
 		} else {
 			print ("Triggered by non-Enemy: " + go.name);
 		}
@@ -74,6 +77,7 @@ public class Hero : MonoBehaviour {
 
 	public void AbsorbPowerUp(GameObject go){      
 		PowerUp pu = go.GetComponent<PowerUp> ();
+		Debug.Log (pu.type);     
 		switch (pu.type) {
 
 		case WeaponType.shield:
@@ -86,9 +90,8 @@ public class Hero : MonoBehaviour {
 				if (w != null) {
 					w.SetType (pu.type);
 				}	
-			} else{                                //different weapon type, reset 
-				ClearWeapons ();
-				weapons [0].SetType (pu.type);
+			} else{                                //different weapon type, switch to same level
+				SwitchWeapons (pu.type);
 			}
 			break;
 		  
@@ -105,6 +108,7 @@ public class Hero : MonoBehaviour {
 			_shieldLevel = Mathf.Min (value, 4);
 			if (value < 0) {
 				Destroy (this.gameObject);
+				Instantiate (heroExplosion, transform.position, transform.rotation);
 				Main.S.DelayedRestart (gameRestartDelay);
 				Main.S.setHighScoreText ();   
 			}
@@ -120,8 +124,18 @@ public class Hero : MonoBehaviour {
 		return (null);
 	}
 
-	void ClearWeapons(){
+	void SwitchWeapons(WeaponType type){
 		foreach (Weapon w in weapons) {
+			if (w.type == WeaponType.none){
+				//for unfilled weapon slots, do nothing
+			}else{
+				w.SetType (type);
+			}
+		}
+	}
+
+	void ClearWeapons(){
+		foreach(Weapon w in weapons){
 			w.SetType (WeaponType.none);
 		}
 	}

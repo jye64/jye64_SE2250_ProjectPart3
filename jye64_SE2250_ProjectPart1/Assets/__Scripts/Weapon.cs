@@ -17,7 +17,7 @@ public enum WeaponType{
 	phaser,      //[NT] shots that move in waves
 	missile,     //[NT] homing missiles
 	laser,       //[NT] damage over time
-	shield       //raise shieldLevel
+	shield,      //raise shieldLevel
 }
 
 /// <summary>
@@ -51,6 +51,9 @@ public class Weapon : MonoBehaviour {
 	public float lastShotTime;
 	private Renderer collarRend;
 
+	[Header("Set in Inspector: Explosion")]
+	public float radius = 5.0f;
+	public float power = 10.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -66,7 +69,7 @@ public class Weapon : MonoBehaviour {
 
 		GameObject rootGO = transform.root.gameObject;
 		if (rootGO.GetComponent<Hero> () != null) {
-			rootGO.GetComponent<Hero>().fireDelegate += Fire;     //add Fire to firedelagate
+			rootGO.GetComponent<Hero>().fireDelegate += Fire;     //add Fire to fireDelegate
 		}
 			
 	}
@@ -118,7 +121,14 @@ public class Weapon : MonoBehaviour {
 			p.transform.rotation = Quaternion.AngleAxis(-30, Vector3.back);
 			p.rigid.velocity = p.transform.rotation*vel;
 			break;
-			
+		
+		case WeaponType.laser:
+
+			break;
+
+		case WeaponType.missile:
+
+			break;
 
 		} // end switch
 
@@ -150,5 +160,31 @@ public class Weapon : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Alpha2)) {
 			type = WeaponType.blaster;
 		}
-	}
+		if (Input.GetKeyDown (KeyCode.Alpha3))
+			type = WeaponType.missile;
+    }
+
+//	public GameObject FindClosestEnemy(){
+//		GameObject[] gos;
+//		gos = GameObject.FindGameObjectsWithTag("Enemy");
+//		GameObject closest = null;
+//		float distance2 = Mathf.Infinity;
+//		float distance = 15;
+//		Vector3 position = transform.position;
+//		foreach (GameObject go in gos) {
+//			Vector3 diff = go.transform.position - position;
+//			float curDistance = diff.sqrMagnitude;
+//			if (curDistance < distance) {
+//				closest = go;
+//				distance = curDistance;
+//				//target = go;
+//
+//			}
+//		}
+//
+//		return closest;
+//	}
+//
+
 }
+

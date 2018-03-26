@@ -15,8 +15,6 @@ public class Parallax : MonoBehaviour {
 	private float panelHt;
 	private float depth;
 
-	[Header("Set in Inspector")]
-	public GameObject[] panelsNextLevel;  //background for next level
 
 	// Use this for initialization
 	void Start () {
@@ -30,25 +28,22 @@ public class Parallax : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		if (Main.S.getScoreCounter()>1200){
-			panels = panelsNextLevel;
-		}
-
 		float tY, tX = 0;
 		tY = Time.time * scrollSpeed % panelHt + (panelHt * 0.5f);
 
-		if (poi != null){
+		if (poi != null) {
 			tX = -poi.transform.position.x * motionMult;
 		}
 
-		panels[0].transform.position = new Vector3(tX,tY,depth);
+		panels [0].transform.position = new Vector3 (tX, tY, depth);
 
-		if (tY >= 0){
-			panels[1].transform.position = new Vector3(tX,tY-panelHt, depth);
-		}else{
-			panels[1].transform.position = new Vector3 (tX, tY+ panelHt, depth);
+		if (tY >= 0) {
+			panels [1].transform.position = new Vector3 (tX, tY - panelHt, depth);
+		} else {
+			panels [1].transform.position = new Vector3 (tX, tY + panelHt, depth);
 		}
-		
-	}
+			
+    }
+
+
 }

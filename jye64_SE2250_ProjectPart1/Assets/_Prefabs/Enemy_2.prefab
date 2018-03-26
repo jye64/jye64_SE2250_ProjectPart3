@@ -585,6 +585,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 0.6
+  explosion: {fileID: 100012, guid: 87429d2e1e9c84905b556d4343f12981, type: 2}
   originalColors: []
   materials: []
   showingDamage: 0
@@ -604,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100ddf4c2d80b437b8ea589bcab69d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: -2.5
+  radius: -1.5
   keepOnScreen: 0
   isOnScreen: 1
   camWidth: 0

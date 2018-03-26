@@ -635,6 +635,7 @@ MonoBehaviour:
   - {fileID: 1067953743}
   - {fileID: 1394697413}
   - {fileID: 2018550778}
+  heroExplosion: {fileID: 100008, guid: be99f26671b6a4e8890c796e5f52723c, type: 2}
   _shieldLevel: 1
 --- !u!114 &1086499456
 MonoBehaviour:
@@ -1049,6 +1050,16 @@ MonoBehaviour:
     delayBetweenShots: 0.4
     velocity: 50
   - type: 6
+    letter: L
+    color: {r: 0.18079582, g: 0.85294116, b: 0.15679064, a: 1}
+    projectileprefab: {fileID: 1517225368455774, guid: bfbed9d4665554428abace5f42af69f5,
+      type: 2}
+    projectileColor: {r: 0.054498266, g: 0.9264706, b: 0.09659356, a: 1}
+    damageOnHit: 1
+    continuousDamage: 1
+    delayBetweenShots: 0.6
+    velocity: 50
+  - type: 5
     letter: O
     color: {r: 0.18079582, g: 0.85294116, b: 0.15679064, a: 1}
     projectileprefab: {fileID: 0}
@@ -1429,8 +1440,6 @@ MonoBehaviour:
   - {fileID: 159903283}
   scrollSpeed: -30
   motionMult: 0.25
-  panelsNextLevel:
-  - {fileID: 0}
 --- !u!1 &1501612758
 GameObject:
   m_ObjectHideFlags: 0

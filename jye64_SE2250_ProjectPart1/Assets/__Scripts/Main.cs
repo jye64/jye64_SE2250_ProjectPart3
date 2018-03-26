@@ -28,7 +28,6 @@ public class Main : MonoBehaviour {
 	private int _levelCounter = 1;
 
 	public Text highScoreText;
-	static private int _highScoreCounter = 0;
 
 	private BoundsCheck bndCheck;
 
@@ -115,7 +114,7 @@ public class Main : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		setHighScoreText ();
 	}
 
 	public void setScoreText(int input){
@@ -125,7 +124,6 @@ public class Main : MonoBehaviour {
 
 	public void setHighScoreText(){
 		if (_scoreCounter > PlayerPrefs.GetInt("_highScoreCounter")) {
-//			_highScoreCounter = _scoreCounter;
 			PlayerPrefs.SetInt("_highScoreCounter", _scoreCounter);
 		}
 		highScoreText.text = "High Score: " + "\n" + PlayerPrefs.GetInt("_highScoreCounter");
