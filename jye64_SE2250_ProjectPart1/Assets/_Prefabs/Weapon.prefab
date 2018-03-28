@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5746840607481465eb075813e0e15d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
+  _type: 7
   def:
     type: 0
     letter: 
@@ -208,3 +208,6 @@ MonoBehaviour:
     velocity: 20
   collar: {fileID: 0}
   lastShotTime: 0
+  radius: 5
+  power: 10
+  explosions: {fileID: 100012, guid: 87429d2e1e9c84905b556d4343f12981, type: 2}

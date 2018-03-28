@@ -19,6 +19,7 @@ public enum WeaponType{
 	laser, //[NT] damage over time
     nuke,
 	shield,//raise shieldLevel
+
 }
 
 /// <summary>
@@ -38,6 +39,7 @@ public class WeaponDefinition{
 	public float         continuousDamage = 0;                // damage per second(Laser)
 	public float         delayBetweenShots = 0;
 	public float         velocity = 20;                       //speed of projectiles
+  
 } 
 
 
@@ -55,9 +57,10 @@ public class Weapon : MonoBehaviour {
 	[Header("Set in Inspector: Explosion")]
 	public float radius = 5.0f;
 	public float power = 10.0f;
+    public GameObject explosions;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		collar = transform.Find ("Collar").gameObject;
 		collarRend = collar.GetComponent<Renderer> ();
 
@@ -139,11 +142,15 @@ public class Weapon : MonoBehaviour {
                     x = new Enemy();
                     y = new Enemy_1();
                     if (gameObjects[i].name == "Enemy_0(Clone)")
+                    { 
                         Main.S.setScoreText(x.score);
+                    }
                     if (gameObjects[i].name == "Enemy_1(Clone)")
+                    {
                         Main.S.setScoreText(y.score);
+                    }
+                    Instantiate(explosions, gameObjects[i].transform.position, gameObjects[i].transform.rotation);
                     Destroy(gameObjects[i]);
-
                 }
                 break;
         } // end switch
