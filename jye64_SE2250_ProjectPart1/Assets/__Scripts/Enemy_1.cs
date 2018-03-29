@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Enemy_1 goes randomly left or right, reverse direction when hits the boundary
 
 public class Enemy_1 : Enemy {
-
-	[HideInInspector]
-	public bool direction;
 
 	[Header("Set in Inspector: Enemy_1")]
 	public float projectileSpeed = 40;
@@ -15,7 +13,9 @@ public class Enemy_1 : Enemy {
 	private float camHeight;
 	public float enemyShootingInterval = 2.0f;
 	public GameObject projectilePrefab;   //holding Enemy projectile  
-	public Weapon[] weapons;  
+	public Weapon[] weapons;
+
+	private bool direction;
   
 	public override void Awake(){
 		camHeight = Camera.main.orthographicSize;
@@ -24,13 +24,13 @@ public class Enemy_1 : Enemy {
 		base.Awake ();
 	}
 
-//	void EnemyFire(){
-//		GameObject projGO = Instantiate<GameObject>(projectilePrefab);
-//		projGO.transform.position = transform.position;
-//		Rigidbody rigidB = projGO.GetComponent<Rigidbody> ();
-//		Vector3 heroPosition = Hero.S.transform.position;
-//		rigidB.velocity = heroPosition * projectileSpeed;
-//	}
+	//to do
+	void EnemyFire(){
+		GameObject projGO = Instantiate<GameObject>(projectilePrefab);
+		projGO.transform.position = transform.position;
+		Rigidbody rigidB = projGO.GetComponent<Rigidbody> ();
+		rigidB.velocity = Vector3.down * projectileSpeed;
+	}
 
 	void Start(){
 		if (Random.Range (0f, 1.0f) < 0.5f) { //random left or right
@@ -41,7 +41,6 @@ public class Enemy_1 : Enemy {
 	}
 		
 	public override void Move(){
-		
 		if (direction == true) {
 			transform.Translate(new Vector3(-1*Time.deltaTime*10, 0, 0)); // left
 			if (pos.x < -camWidth + radius+3){
@@ -52,9 +51,9 @@ public class Enemy_1 : Enemy {
 			if (pos.x > camWidth -radius-3){
 				direction = true; //when hits the scene boundary, change direction
 			}
-		}
-			
+		}	
 		base.Move ();
 	}
+		
 
 }

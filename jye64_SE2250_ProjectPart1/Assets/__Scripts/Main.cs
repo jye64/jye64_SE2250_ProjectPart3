@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
-	static public Main S;      // a singleton for Main
+	static public Main S;      
 	static Dictionary<WeaponType, WeaponDefinition> WEAP_DICT;
 
 	[Header("Set in Inspector")]
@@ -15,8 +15,9 @@ public class Main : MonoBehaviour {
 	public float enemyDefaultPadding = 1.5f;
 	public WeaponDefinition[] weaponDefinitions;
 	public GameObject prefabPowerUp;
+
 	// Here is the array of available PowerUps
-	public WeaponType[]   powerUpFrequency = new WeaponType[]{
+	public WeaponType[] powerUpFrequency = new WeaponType[]{
 		WeaponType.simple, WeaponType.blaster, WeaponType.blaster, WeaponType.shield
 	};
 		

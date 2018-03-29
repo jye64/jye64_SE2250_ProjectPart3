@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Enemy_0 goes straight down
+
 public class Enemy : MonoBehaviour {
 
 	[Header("Set in Inspector: Enemy")]

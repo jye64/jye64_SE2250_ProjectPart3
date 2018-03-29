@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy_2 : Enemy {
 
-	[Header("Set in Inspector")]
+	[Header("Set in Inspector: Enemy_2")]
 	public float waveFrequency =1;
 	public float waveWidth = 2;
 	public float waveRotY = 45;

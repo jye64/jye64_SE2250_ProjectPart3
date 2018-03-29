@@ -9,6 +9,7 @@ public class PowerUp : MonoBehaviour {
 	public Vector2 driftMinMax = new Vector2(0.25f, 2);
 	public float lifeTime = 6f;
 	public float fadeTime = 4f;
+	public float speed = 10f;
 
 	[Header("Set Dynamically")]
 	public WeaponType type;  
@@ -76,11 +77,10 @@ public class PowerUp : MonoBehaviour {
 		//call by Hero class when a PowerUp is collected
 		Destroy(this.gameObject);
 	}
-
-
+		
 	// Use this for initialization
 	void Start () {
 		
 	}
-
+		
 }
