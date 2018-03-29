@@ -1070,6 +1070,15 @@ MonoBehaviour:
     continuousDamage: 0
     delayBetweenShots: 0
     velocity: 0
+  - type: 7
+    letter: N
+    color: {r: 0.18079582, g: 0.85294116, b: 0.15679064, a: 1}
+    projectileprefab: {fileID: 0}
+    projectileColor: {r: 0.99264705, g: 0.99264705, b: 0.99264705, a: 1}
+    damageOnHit: 1
+    continuousDamage: 0
+    delayBetweenShots: 0
+    velocity: 0
   prefabPowerUp: {fileID: 1666717322445834, guid: 9f871b70de9604db899e487d0a933724,
     type: 2}
   powerUpFrequency: 01000000020000000200000007000000
