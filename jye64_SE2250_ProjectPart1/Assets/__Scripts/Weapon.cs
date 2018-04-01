@@ -130,34 +130,67 @@ public class Weapon : MonoBehaviour {
 
 			break;
 
+        // to fix
 		case WeaponType.missile:
+			p = MakeProjectile();
+ 			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+			if(enemies.Length>0){
+				int closestIndex = 0;
+				float closestDistance = Mathf.Infinity;
+				float tempDistance;
+				for (int i = 0; i < enemies.Length; i++){
+					tempDistance = Vector3.Distance(this.transform.position, enemies[i].transform.position);
+					if(tempDistance<closestDistance){
+						closestDistance = tempDistance;
+						closestIndex = i;
+					}
+				}
+				GameObject closestEnemy = enemies[closestIndex];
+				Vector3 bulletDirection = closestEnemy.transform.position - this.transform.position;
+				p.rigid.velocity = p.transform.rotation * bulletDirection*3;
+			}else {
+				p.rigid.velocity = vel;
+			}
+			break;
+			
+
+        //to do
+        //case WeaponType.nuke:
+                //GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+                //for (int i = 0; i < gameObjects.Length; i++)
+                //{
+                //    Enemy x;
+                //    Enemy_1 y;
+                //    x = new Enemy();
+                //    y = new Enemy_1();
+                //    if (gameObjects[i].name == "Enemy_0(Clone)")
+                //    { 
+                //        Main.S.setScoreText(x.score);
+                //    }
+                //    if (gameObjects[i].name == "Enemy_1(Clone)")
+                //    {
+                //        Main.S.setScoreText(y.score);
+                //    }
+                //    Instantiate(explosions, gameObjects[i].transform.position, gameObjects[i].transform.rotation);
+                //    Destroy(gameObjects[i]);
+                //}
+                //break;
+
+		case WeaponType.nuke:
+			GameObject[] gameOB = GameObject.FindGameObjectsWithTag("Enemy");
+			foreach(GameObject gb in gameOB){
+
+			}
 
 			break;
-       case WeaponType.nuke:
-                GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
-                for (int i = 0; i < gameObjects.Length; i++)
-                {
-                    Enemy x;
-                    Enemy_1 y;
-                    x = new Enemy();
-                    y = new Enemy_1();
-                    if (gameObjects[i].name == "Enemy_0(Clone)")
-                    { 
-                        Main.S.setScoreText(x.score);
-                    }
-                    if (gameObjects[i].name == "Enemy_1(Clone)")
-                    {
-                        Main.S.setScoreText(y.score);
-                    }
-                    Instantiate(explosions, gameObjects[i].transform.position, gameObjects[i].transform.rotation);
-                    Destroy(gameObjects[i]);
-                }
-                break;
+            
+                
         } // end switch
 
 	}
 
-	public Projectile MakeProjectile(){
+
+    public Projectile MakeProjectile(){
 		GameObject go = Instantiate<GameObject> (def.projectileprefab);
 		if (transform.parent.gameObject.tag == "Hero") {
 			go.tag = "ProjectileHero";
@@ -187,10 +220,11 @@ public class Weapon : MonoBehaviour {
         {
             type = WeaponType.missile;
         }
-         if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
              type = WeaponType.nuke;
         }
+
     }
 
 //	public GameObject FindClosestEnemy(){
