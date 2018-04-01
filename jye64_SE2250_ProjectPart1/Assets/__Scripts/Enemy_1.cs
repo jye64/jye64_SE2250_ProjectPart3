@@ -11,36 +11,19 @@ public class Enemy_1 : Enemy {
 	private float radius = 1f;
 	private float camWidth;
 	private float camHeight;
-    public float enemyShootingInterval = 0.5f;
+	public float enemyShootingInterval = 2.0f;
 	public GameObject projectilePrefab;   //holding Enemy projectile  
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public Weapon[] weapons;
-
-   
-
-
-    public override void Awake(){
-=======
-=======
->>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 	public Weapon[] weapons;
 
 	private bool direction;
   
 	public override void Awake(){
->>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 		camHeight = Camera.main.orthographicSize;
 		camWidth = camHeight * Camera.main.aspect;
 		bndCheck = GetComponent<BoundsCheck> (); 
 		base.Awake ();
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 	//to do
 	void EnemyFire(){
 		GameObject projGO = Instantiate<GameObject>(projectilePrefab);
@@ -48,20 +31,14 @@ public class Enemy_1 : Enemy {
 		Rigidbody rigidB = projGO.GetComponent<Rigidbody> ();
 		rigidB.velocity = Vector3.down * projectileSpeed;
 	}
-<<<<<<< HEAD
->>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
-=======
->>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 
-
-    void Start(){
+	void Start(){
 		if (Random.Range (0f, 1.0f) < 0.5f) { //random left or right
 			direction = true;
 		} else {
 			direction = false;
 		}
-        InvokeRepeating("Enemyfire", enemyShootingInterval , fireRate);
-    }
+	}
 		
 	public override void Move(){
 		if (direction == true) {
@@ -77,20 +54,6 @@ public class Enemy_1 : Enemy {
 		}	
 		base.Move ();
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-    void Enemyfire()
-    {
-        GameObject projGo = Instantiate<GameObject>(projectilePrefab);
-        projGo.transform.position = transform.position;
-        Rigidbody rigidB = projGo.GetComponent<Rigidbody>();
-        rigidB.velocity = Vector3.down * projectileSpeed;
-    }
-=======
 		
->>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
-=======
-		
->>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 
 }

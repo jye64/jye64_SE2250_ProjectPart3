@@ -15,13 +15,13 @@ public class Enemy : MonoBehaviour {
 	public float powerUpDropChance = 1f;
 	public GameObject explosion;
 
-    [Header("Set Dynamically: Enemy")]
+	[Header("Set Dynamically: Enemy")]
 	public Color[] originalColors;
 	public Material[] materials;
 	public bool showingDamage = false;
 	public float damageDoneTime;  //time to stop showing damage
 	public bool notifiedOdDestruction = false;
-    public Weapon wp;
+
 	protected BoundsCheck bndCheck;
 
 	public virtual void Awake(){
@@ -44,12 +44,13 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-    }
-
+		
+	}
+	
 	// Update is called once per frame
     void Update () {
 		Move ();
+
 		if (showingDamage && Time.time > damageDoneTime) {
 			UnShowDamage ();
 		}
@@ -66,6 +67,7 @@ public class Enemy : MonoBehaviour {
 		tempPos.y -= speed*Time.deltaTime;
 		pos = tempPos;
 	}
+		
 
 	void OnCollisionEnter(Collision coll){
 		GameObject otherGO = coll.gameObject;

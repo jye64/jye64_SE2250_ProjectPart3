@@ -611,13 +611,10 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOdDestruction: 0
-  wp: {fileID: 0}
   direction: 0
   projectileSpeed: 40
-  enemyShootingInterval: 0.5
   projectilePrefab: {fileID: 1517225368455774, guid: a2c71286482f84226b9f90fd99ce90dc,
     type: 2}
-  weapons: []
 --- !u!135 &135064218969020552
 SphereCollider:
   m_ObjectHideFlags: 1

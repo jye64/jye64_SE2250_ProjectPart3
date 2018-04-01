@@ -434,27 +434,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  fireRate: 1
+  fireRate: 0.3
   health: 15
   score: 120
   showDamageDuration: 0.1
   powerUpDropChance: 0.6
   explosion: {fileID: 100012, guid: 87429d2e1e9c84905b556d4343f12981, type: 2}
   originalColors: []
-  materials:
-  - {fileID: 0}
+  materials: []
   showingDamage: 0
   damageDoneTime: 0
   notifiedOdDestruction: 0
-  wp: {fileID: 114965989570800630, guid: b4d1473b5962e497ca7a589098791090, type: 2}
   waveFrequency: 1
   waveWidth: 2
   waveRotY: 45
-  projectilePrefab: {fileID: 1517225368455774, guid: a2c71286482f84226b9f90fd99ce90dc,
-    type: 2}
-  projectileSpeed: 40
-  weapons:
-  - {fileID: 0}
 --- !u!114 &114934286442077148
 MonoBehaviour:
   m_ObjectHideFlags: 1
