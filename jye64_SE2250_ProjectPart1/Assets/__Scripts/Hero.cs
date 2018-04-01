@@ -70,6 +70,7 @@ public class Hero : MonoBehaviour {
 			AbsorbPowerUp (go);          
 		} else if (go.tag == "ProjectileEnemy"){
 			shieldLevel--;
+            Destroy(go);
 		} else {
 			print ("Triggered by non-Enemy: " + go.name);
 		}

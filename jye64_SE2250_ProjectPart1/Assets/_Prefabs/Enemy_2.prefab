@@ -445,9 +445,12 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOdDestruction: 0
+  projectileSpeed: 40
   waveFrequency: 1
   waveWidth: 2
   waveRotY: 45
+  projectilePrefab: {fileID: 1517225368455774, guid: a2c71286482f84226b9f90fd99ce90dc,
+    type: 2}
 --- !u!114 &114934286442077148
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -543,6 +543,11 @@ Prefab:
       propertyPath: m_Name
       value: Weapon_2
       objectReference: {fileID: 0}
+    - target: {fileID: 114965989570800630, guid: b4d1473b5962e497ca7a589098791090,
+        type: 2}
+      propertyPath: _type
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4d1473b5962e497ca7a589098791090, type: 2}
   m_IsPrefabParent: 0
@@ -699,6 +704,11 @@ Prefab:
     - target: {fileID: 1889771565198670, guid: b4d1473b5962e497ca7a589098791090, type: 2}
       propertyPath: m_Name
       value: Weapon_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114965989570800630, guid: b4d1473b5962e497ca7a589098791090,
+        type: 2}
+      propertyPath: _type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4d1473b5962e497ca7a589098791090, type: 2}
@@ -1026,8 +1036,7 @@ MonoBehaviour:
   - {fileID: 1755949202620640, guid: 25aa78e6693604740a36a23cce650ce5, type: 2}
   - {fileID: 1517268337290682, guid: 1dfca8f9c42f94c26ab4e5c92a61693c, type: 2}
   - {fileID: 1578338867712680, guid: e016cef0ebb834188bf7bdc563b9819d, type: 2}
-  - {fileID: 1316080672331670, guid: 284832d400b494c97abfd9a71bff77f0, type: 2}
-  - {fileID: 1213632223091110, guid: e892cfdfa76b847e8974de41a81e883f, type: 2}
+  - {fileID: 1887227257424044, guid: 284832d400b494c97abfd9a71bff77f0, type: 2}
   enemySpawnPerSecond: 0.5
   enemyDefaultPadding: 1.5
   weaponDefinitions:
@@ -1064,12 +1073,13 @@ MonoBehaviour:
   - type: 5
     letter: O
     color: {r: 0.18079582, g: 0.85294116, b: 0.15679064, a: 1}
-    projectileprefab: {fileID: 0}
+    projectileprefab: {fileID: 1517225368455774, guid: bfbed9d4665554428abace5f42af69f5,
+      type: 2}
     projectileColor: {r: 0.99264705, g: 0.99264705, b: 0.99264705, a: 1}
     damageOnHit: 1
     continuousDamage: 0
-    delayBetweenShots: 0
-    velocity: 0
+    delayBetweenShots: 0.2
+    velocity: 50
   - type: 7
     letter: N
     color: {r: 0.18079582, g: 0.85294116, b: 0.15679064, a: 1}
@@ -1081,7 +1091,7 @@ MonoBehaviour:
     velocity: 0
   prefabPowerUp: {fileID: 1666717322445834, guid: 9f871b70de9604db899e487d0a933724,
     type: 2}
-  powerUpFrequency: 01000000020000000200000007000000
+  powerUpFrequency: 01000000020000000200000008000000
   scoreText: {fileID: 95935099}
   levelText: {fileID: 361986292}
   highScoreText: {fileID: 1388943767}
@@ -1287,6 +1297,11 @@ Prefab:
       propertyPath: m_Name
       value: Weapon_3
       objectReference: {fileID: 0}
+    - target: {fileID: 114965989570800630, guid: b4d1473b5962e497ca7a589098791090,
+        type: 2}
+      propertyPath: _type
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4d1473b5962e497ca7a589098791090, type: 2}
   m_IsPrefabParent: 0
@@ -1343,6 +1358,11 @@ Prefab:
     - target: {fileID: 1889771565198670, guid: b4d1473b5962e497ca7a589098791090, type: 2}
       propertyPath: m_Name
       value: Weapon_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114965989570800630, guid: b4d1473b5962e497ca7a589098791090,
+        type: 2}
+      propertyPath: _type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4d1473b5962e497ca7a589098791090, type: 2}
@@ -1732,6 +1752,11 @@ Prefab:
     - target: {fileID: 1889771565198670, guid: b4d1473b5962e497ca7a589098791090, type: 2}
       propertyPath: m_Name
       value: Weapon_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114965989570800630, guid: b4d1473b5962e497ca7a589098791090,
+        type: 2}
+      propertyPath: _type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4d1473b5962e497ca7a589098791090, type: 2}

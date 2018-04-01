@@ -13,8 +13,8 @@ public class BoundsCheck : MonoBehaviour {
 	public float radius = 1f;
 	public bool keepOnScreen = true;
 
-	[Header("Set Dynamically")]
-	public bool  isOnScreen = true;
+    [Header("Set Dynamically")]
+    public bool isOnScreen = true;
 	public float camWidth;
 	public float camHeight;
 
