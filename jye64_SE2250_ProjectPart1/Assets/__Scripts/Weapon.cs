@@ -149,9 +149,11 @@ public class Weapon : MonoBehaviour {
                     {
                         Main.S.setScoreText(y.score);
                     }
+                    if(gameObjects[i].name == "Enemy_2(Clone)")
                     Instantiate(explosions, gameObjects[i].transform.position, gameObjects[i].transform.rotation);
                     Destroy(gameObjects[i]);
                 }
+                type = WeaponType.simple;
                 break;
         } // end switch
 

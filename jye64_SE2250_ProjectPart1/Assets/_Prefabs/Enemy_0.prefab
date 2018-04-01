@@ -635,6 +635,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOdDestruction: 0
+  wp: {fileID: 0}
 --- !u!135 &135089997914469564
 SphereCollider:
   m_ObjectHideFlags: 1

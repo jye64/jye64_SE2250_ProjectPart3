@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy_2 : Enemy {
 
-	[Header("Set in Inspector")]
+	[Header("Set in Inspector: Enemy_2")]
 	public float waveFrequency =1;
 	public float waveWidth = 2;
 	public float waveRotY = 45;
@@ -14,10 +14,15 @@ public class Enemy_2 : Enemy {
 	private float x0;
 	private float birthTime;
 
-	void Start(){
+
+
+
+    void Start(){
 		x0 = pos.x;
 		birthTime=Time.time;
-	}
+        
+
+    }
 
 	public override void Move(){
 		Vector3 tempPos = pos;
@@ -31,4 +36,10 @@ public class Enemy_2 : Enemy {
 		this.transform.rotation = Quaternion.Euler(rot);
 		base.Move();
 	}
+<<<<<<< HEAD
+
+
 }
+=======
+}
+>>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
