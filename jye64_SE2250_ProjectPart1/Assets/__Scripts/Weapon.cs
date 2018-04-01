@@ -59,6 +59,8 @@ public class Weapon : MonoBehaviour {
 	public float power = 10.0f;
     public GameObject explosions;
 
+	private GameObject temp;
+
     // Use this for initialization
     void Start () {
 		collar = transform.Find ("Collar").gameObject;
@@ -130,32 +132,21 @@ public class Weapon : MonoBehaviour {
 
 			break;
 
-        // to fix
 		case WeaponType.missile:
 			p = MakeProjectile();
- 			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-			if(enemies.Length>0){
-				int closestIndex = 0;
-				float closestDistance = Mathf.Infinity;
-				float tempDistance;
-				for (int i = 0; i < enemies.Length; i++){
-					tempDistance = Vector3.Distance(this.transform.position, enemies[i].transform.position);
-					if(tempDistance<closestDistance){
-						closestDistance = tempDistance;
-						closestIndex = i;
-					}
-				}
-				GameObject closestEnemy = enemies[closestIndex];
+			if(temp!=null){
+				GameObject closestEnemy = temp;
 				Vector3 bulletDirection = closestEnemy.transform.position - this.transform.position;
 				p.rigid.velocity = p.transform.rotation * bulletDirection*3;
-			}else {
+			} else {
 				p.rigid.velocity = vel;
 			}
 			break;
-            //to do
-            case WeaponType.nuke:
-                Nuke();
-                break;
+
+
+        case WeaponType.nuke:
+            Nuke();
+            break;
         } // end switch
 
     }
@@ -171,6 +162,7 @@ public class Weapon : MonoBehaviour {
             type = WeaponType.simple;
         }
     }
+
     public Projectile MakeProjectile(){
 		GameObject go = Instantiate<GameObject> (def.projectileprefab);
 		if (transform.parent.gameObject.tag == "Hero") {
@@ -207,33 +199,34 @@ public class Weapon : MonoBehaviour {
         else if(Input.GetKeyDown(KeyCode.E))
         {
             type = WeaponType.nuke;
-       
         }
-
 
     }
 
-//	public GameObject FindClosestEnemy(){
-//		GameObject[] gos;
-//		gos = GameObject.FindGameObjectsWithTag("Enemy");
-//		GameObject closest = null;
-//		float distance2 = Mathf.Infinity;
-//		float distance = 15;
-//		Vector3 position = transform.position;
-//		foreach (GameObject go in gos) {
-//			Vector3 diff = go.transform.position - position;
-//			float curDistance = diff.sqrMagnitude;
-//			if (curDistance < distance) {
-//				closest = go;
-//				distance = curDistance;
-//				//target = go;
-//
-//			}
-//		}
-//
-//		return closest;
-//	}
-//
+	void LateUpdate(){
+		if(type == WeaponType.missile){
+			temp = findClosest ();
+		}
+	}
+
+	GameObject findClosest(){
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		if (enemies.Length > 0) {
+			int closestIndex = 0;
+			float closestDistance = Mathf.Infinity;
+			float tempDistance;
+			for (int i = 0; i < enemies.Length; i++) {
+				tempDistance = Vector3.Distance (this.transform.position, enemies [i].transform.position);
+				if (tempDistance < closestDistance) {
+					closestDistance = tempDistance;
+					closestIndex = i;
+				}
+			}
+			return enemies [closestIndex];
+		}
+		return null;
+	}
+
 
 }
 
