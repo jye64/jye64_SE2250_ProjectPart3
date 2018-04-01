@@ -29,6 +29,8 @@ public class Main : MonoBehaviour {
 	private int _levelCounter = 1;
 
 	public Text highScoreText;
+    public Text BombCountText;
+    private int _BombCount = 0;
 
 	private BoundsCheck bndCheck;
 
@@ -111,6 +113,7 @@ public class Main : MonoBehaviour {
 		setScoreText (0);
 		setHighScoreText ();
 		setLevelText ();
+        setBombCountText(0);
 	}
 	
 	// Update is called once per frame
@@ -129,8 +132,14 @@ public class Main : MonoBehaviour {
 		}
 		highScoreText.text = "High Score: " + "\n" + PlayerPrefs.GetInt("_highScoreCounter");
 	}
+    public void setBombCountText(int input)
+    {
+        _BombCount += input;
+        BombCountText.text = "Bomb: " + _BombCount.ToString();
 
-	public void setLevelText(){
+    }
+
+    public void setLevelText(){
 		if (_scoreCounter > 1200){
 			_levelCounter = 2;
 			levelText.text = "Level: " + _levelCounter.ToString();

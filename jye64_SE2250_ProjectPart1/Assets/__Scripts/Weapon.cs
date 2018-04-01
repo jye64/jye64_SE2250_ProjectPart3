@@ -152,44 +152,25 @@ public class Weapon : MonoBehaviour {
 				p.rigid.velocity = vel;
 			}
 			break;
-			
-
-        //to do
-        //case WeaponType.nuke:
-                //GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
-                //for (int i = 0; i < gameObjects.Length; i++)
-                //{
-                //    Enemy x;
-                //    Enemy_1 y;
-                //    x = new Enemy();
-                //    y = new Enemy_1();
-                //    if (gameObjects[i].name == "Enemy_0(Clone)")
-                //    { 
-                //        Main.S.setScoreText(x.score);
-                //    }
-                //    if (gameObjects[i].name == "Enemy_1(Clone)")
-                //    {
-                //        Main.S.setScoreText(y.score);
-                //    }
-                //    Instantiate(explosions, gameObjects[i].transform.position, gameObjects[i].transform.rotation);
-                //    Destroy(gameObjects[i]);
-                //}
-                //break;
-
-		case WeaponType.nuke:
-			GameObject[] gameOB = GameObject.FindGameObjectsWithTag("Enemy");
-			foreach(GameObject gb in gameOB){
-
-			}
-
-			break;
-            
-                
+            //to do
+            case WeaponType.nuke:
+                Nuke();
+                break;
         } // end switch
 
-	}
+    }
 
-
+    private void Nuke()
+    {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in gameObjects) {
+            Enemy EnemyScript = enemy.GetComponent<Enemy>();
+            Main.S.setScoreText(EnemyScript.score);
+            Instantiate(explosions, enemy.transform.position, enemy.transform.rotation);
+            Destroy(enemy);
+            type = WeaponType.simple;
+        }
+    }
     public Projectile MakeProjectile(){
 		GameObject go = Instantiate<GameObject> (def.projectileprefab);
 		if (transform.parent.gameObject.tag == "Hero") {
@@ -220,10 +201,15 @@ public class Weapon : MonoBehaviour {
         {
             type = WeaponType.missile;
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Main.S.BombCountText.Equals("0"))
         {
-             type = WeaponType.nuke;
         }
+        else if(Input.GetKeyDown(KeyCode.E))
+        {
+            type = WeaponType.nuke;
+       
+        }
+
 
     }
 

@@ -84,15 +84,19 @@ public class Hero : MonoBehaviour {
 		case WeaponType.shield:
 			shieldLevel++;
 			break;
-
-		default:
+        case WeaponType.nuke:
+            Main.S.setBombCountText(1);
+            pu.SetType(WeaponType.simple);
+            SwitchWeapons(pu.type);
+            break;
+        default:
 			if (pu.type == weapons [0].type) {      // if it's the same weapon type
 				Weapon w = GetEmptyWeaponSlot ();
 				if (w != null) {
 					w.SetType (pu.type);
 				}	
-			} else{                                //different weapon type, switch to same level
-				SwitchWeapons (pu.type);
+			} else{//different weapon type, switch to same level
+               SwitchWeapons (pu.type);
 			}
 			break;
 		  

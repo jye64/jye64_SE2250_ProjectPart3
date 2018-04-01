@@ -74,7 +74,7 @@ public class PowerUp : MonoBehaviour {
 	}
 
 	public void AbsorbedBy(GameObject target){
-		//call by Hero class when a PowerUp is collected
+        //call by Hero class when a PowerUp is collected
 		Destroy(this.gameObject);
 	}
 		

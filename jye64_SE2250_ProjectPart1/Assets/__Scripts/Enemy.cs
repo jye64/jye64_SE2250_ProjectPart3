@@ -119,6 +119,11 @@ public class Enemy : MonoBehaviour {
 		}
 		showingDamage = false;
 	}
+    
+    int getScore()
+    {
+        return score;
+    }
 
 
 }
