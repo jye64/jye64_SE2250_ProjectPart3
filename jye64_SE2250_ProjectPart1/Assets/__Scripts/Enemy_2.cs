@@ -37,9 +37,13 @@ public class Enemy_2 : Enemy {
 		base.Move();
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 }
+=======
+}
+>>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 =======
 }
 >>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7

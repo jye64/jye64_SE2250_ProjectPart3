@@ -14,6 +14,7 @@ public class Enemy_1 : Enemy {
     public float enemyShootingInterval = 0.5f;
 	public GameObject projectilePrefab;   //holding Enemy projectile  
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Weapon[] weapons;
 
    
@@ -21,6 +22,8 @@ public class Enemy_1 : Enemy {
 
     public override void Awake(){
 =======
+=======
+>>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 	public Weapon[] weapons;
 
 	private bool direction;
@@ -34,7 +37,10 @@ public class Enemy_1 : Enemy {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 	//to do
 	void EnemyFire(){
 		GameObject projGO = Instantiate<GameObject>(projectilePrefab);
@@ -42,6 +48,9 @@ public class Enemy_1 : Enemy {
 		Rigidbody rigidB = projGO.GetComponent<Rigidbody> ();
 		rigidB.velocity = Vector3.down * projectileSpeed;
 	}
+<<<<<<< HEAD
+>>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
+=======
 >>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 
 
@@ -69,6 +78,7 @@ public class Enemy_1 : Enemy {
 		base.Move ();
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
     void Enemyfire()
     {
         GameObject projGo = Instantiate<GameObject>(projectilePrefab);
@@ -76,6 +86,9 @@ public class Enemy_1 : Enemy {
         Rigidbody rigidB = projGo.GetComponent<Rigidbody>();
         rigidB.velocity = Vector3.down * projectileSpeed;
     }
+=======
+		
+>>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
 =======
 		
 >>>>>>> 66ba6d3b076bd938289a81f13ddba82e3506d8b7
