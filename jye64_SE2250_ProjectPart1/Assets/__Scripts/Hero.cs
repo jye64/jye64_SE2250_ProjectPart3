@@ -32,7 +32,6 @@ public class Hero : MonoBehaviour {
 	private EnergyBar energy;
 
 
-
 	//following fields are for "undamaged" power up 
 	private bool harm;     //determine whether take damage
 	private float harmCounter;   // time duration for not taking damage from enemies
@@ -116,13 +115,13 @@ public class Hero : MonoBehaviour {
 			shieldLevel++;
 			break;
 
-        case WeaponType.nuke:
-                int BombCount = Main.S.getBombCount();
-                BombCount += 1;
-            Main.S.setBombCountText(BombCount);
-            pu.SetType(WeaponType.simple);
-            SwitchWeapons(pu.type);
-            break;
+		case WeaponType.nuke:
+			int BombCount = Main.S.getBombCount();
+			BombCount += 1;
+			Main.S.setBombCountText(BombCount);
+			SwitchWeapons(Main.S.GetOldWeapon());
+
+			break;
 
 
 		case WeaponType.undamaged:
@@ -194,5 +193,7 @@ public class Hero : MonoBehaviour {
 	void setBottomText(string input){
 		bottomText.text = input;
 	}
+
+
 
 }

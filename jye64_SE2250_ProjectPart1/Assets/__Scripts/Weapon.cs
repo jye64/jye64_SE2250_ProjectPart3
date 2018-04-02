@@ -160,7 +160,7 @@ public class Weapon : MonoBehaviour {
             Main.S.setScoreText(EnemyScript.score);
             Instantiate(explosions, enemy.transform.position, enemy.transform.rotation);
             Destroy(enemy);
-            type = WeaponType.simple;
+			type = Main.S.GetOldWeapon();
         }
     }
 
@@ -196,12 +196,10 @@ public class Weapon : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.E))
         { int BombCount = Main.S.getBombCount();
-            if (BombCount != 0)
-            {
-                BombCount -= 1;
-                type = WeaponType.nuke;
-                Main.S.setBombCountText(BombCount);
-            }
+			if (BombCount > 0)
+			{
+				type = WeaponType.nuke;
+			}
         }
 
     }

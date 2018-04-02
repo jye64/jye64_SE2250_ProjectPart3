@@ -39,6 +39,8 @@ public class Main : MonoBehaviour {
 	private float spawnTimer;
 	private bool toSpawn;
 
+	private WeaponType old;
+
 	public void ShipDestroyed(Enemy e){
 		if (Random.value <= e.powerUpDropChance){      // manage PowerUp drop chance, set in inspector
 			//choose which powerup to drop
@@ -200,6 +202,23 @@ public class Main : MonoBehaviour {
 
 	public void setGameOverText(){
 		centralText.text = "Enemy Defeated";
+	}
+
+	public void SetOldWeapon(PowerUp pw)
+	{
+		if (pw.type != WeaponType.nuke && pw.type != WeaponType.shield  && pw.type!= WeaponType.undamaged)
+		{
+			old = pw.type;
+		}
+	}
+
+	public WeaponType GetOldWeapon()
+	{
+		if (old == WeaponType.none)
+		{
+			old = WeaponType.simple;
+		}
+		return old;
 	}
 
 

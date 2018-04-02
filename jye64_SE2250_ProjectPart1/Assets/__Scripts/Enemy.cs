@@ -23,11 +23,9 @@ public class Enemy : MonoBehaviour {
 	public bool notifiedOdDestruction = false;
 
 	protected BoundsCheck bndCheck;
-	//protected HealthBar healthBar;
 
 	public virtual void Awake(){
         bndCheck = GetComponent<BoundsCheck>();
-		//healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
 		materials = Utils.GetAllMaterials(gameObject);
 		originalColors = new Color[materials.Length];
 		for (int i = 0; i < materials.Length; i++) {
@@ -83,7 +81,6 @@ public class Enemy : MonoBehaviour {
 				break;
 			}
 			health -= Main.GetWeaponDefinition (p.type).damageOnHit;
-			//healthBar.changeHP (health);
 			if (health <= 0) {
 				if (!notifiedOdDestruction){
 					Main.S.ShipDestroyed (this);

@@ -23,8 +23,7 @@ public class Enemy_1 : Enemy {
         base.Awake();
         Invoke("EnemyFire", 2f);
     }
-
-    //can implement shoot towards hero
+		
     void EnemyFire()
     {
         GameObject go = Instantiate<GameObject>(projectilePrefab);
