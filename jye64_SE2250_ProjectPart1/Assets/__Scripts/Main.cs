@@ -30,9 +30,14 @@ public class Main : MonoBehaviour {
 
 	public Text highScoreText;
     public Text BombCountText;
+
     private int _BombCount = 0;
 
+	public Text nextLevelText;
+
 	private BoundsCheck bndCheck;
+	private float spawnTimer;
+	private bool toSpawn;
 
 	public void ShipDestroyed(Enemy e){
 		if (Random.value <= e.powerUpDropChance){      // manage PowerUp drop chance, set in inspector
@@ -42,22 +47,23 @@ public class Main : MonoBehaviour {
 			GameObject go = Instantiate (prefabPowerUp) as GameObject;
 			PowerUp pu = go.GetComponent<PowerUp> ();
 			pu.SetType (puType);
-
 			pu.transform.position = e.transform.position;
 		}
 	}
+		
 
 	void Awake(){
 		S = this;
 		//set bndCheck to reference the BoundsCheck component on this GameObject
 		bndCheck = GetComponent<BoundsCheck> ();
-		Invoke ("SpawnEnemy", 1f / enemySpawnPerSecond);
+		//Invoke ("SpawnEnemy", 1f / enemySpawnPerSecond);
 
 		// A generic Dictionary with WeaponType as the key
 		WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition> ();
 		foreach (WeaponDefinition def in weaponDefinitions) {
 			WEAP_DICT [def.type] = def;
 		}
+		toSpawn = true;
 	}
 
 	public void SpawnEnemy(){
@@ -78,7 +84,7 @@ public class Main : MonoBehaviour {
 		pos.y = bndCheck.camHeight + enemyPadding;
 		go.transform.position = pos;
 
-		Invoke ("SpawnEnemy", 1f / enemySpawnPerSecond);
+		//Invoke ("SpawnEnemy", 1f / enemySpawnPerSecond);
 
 	}
 
@@ -119,6 +125,11 @@ public class Main : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		setHighScoreText ();
+		if((spawnTimer > 1f / enemySpawnPerSecond)&& toSpawn ){
+			SpawnEnemy ();
+			spawnTimer = 0; 
+		}
+		spawnTimer += Time.deltaTime;
 	}
 
 	public void setScoreText(int input){
@@ -136,7 +147,6 @@ public class Main : MonoBehaviour {
     {
         _BombCount += input;
         BombCountText.text = "Bomb: " + _BombCount.ToString();
-
     }
 
     public void setLevelText(){
@@ -148,12 +158,20 @@ public class Main : MonoBehaviour {
 		}
 	}
 
-	public int getScoreCounter(){
-		return _scoreCounter;
+	//used when switching level, clear remaining enemies on screen and stop spawning
+	void clearEnemy(){
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		foreach(GameObject go in enemies){
+			Destroy (go);
+		}
+		toSpawn = false;
 	}
 
-	public int getLecvelScounter(){
-		return _levelCounter;
+	public void setNextLevelText(){
+		if(_scoreCounter>1200){
+			nextLevelText.text = "Next Level";
+			clearEnemy ();
+		}
 	}
 
 
