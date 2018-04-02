@@ -51,7 +51,6 @@ public class Hero : MonoBehaviour {
 
 		if (Input.GetAxis("Jump") == 1 && fireDelegate !=null){
 			fireDelegate();
-         
 		}
 	}
 
@@ -86,8 +85,8 @@ public class Hero : MonoBehaviour {
 			shieldLevel++;
 			break;
         case WeaponType.nuke:
-            int BombCount = Main.S.getBombCount();
-            BombCount += 1;
+                int BombCount = Main.S.getBombCount();
+                BombCount += 1;
             Main.S.setBombCountText(BombCount);
             pu.SetType(WeaponType.simple);
             SwitchWeapons(pu.type);

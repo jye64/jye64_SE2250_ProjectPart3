@@ -147,13 +147,10 @@ public class Main : MonoBehaviour {
     {
         _BombCount = input;
         BombCountText.text = "Bomb: " + _BombCount.ToString();
-<<<<<<< HEAD
     }
     public int getBombCount()
     {
         return _BombCount;
-=======
->>>>>>> 52a1b84d53004ab2c5c1153abd162f1d3f80bf77
     }
 
     public void setLevelText(){

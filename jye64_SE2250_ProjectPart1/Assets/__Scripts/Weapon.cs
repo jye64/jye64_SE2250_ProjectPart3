@@ -193,50 +193,16 @@ public class Weapon : MonoBehaviour {
         {
             type = WeaponType.missile;
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-<<<<<<< HEAD
-            if (Main.S.getBombCount() != 0)
+        if(Input.GetKeyDown(KeyCode.E))
+        { int BombCount = Main.S.getBombCount();
+            if (BombCount != 0)
             {
-                type = WeaponType.nuke;
-                int BombCount = Main.S.getBombCount();
                 BombCount -= 1;
-                Main.S.setBombCountText(BombCount); 
+                type = WeaponType.nuke;
+                Main.S.setBombCountText(BombCount);
             }
-            else
-            {}
-=======
-            type = WeaponType.nuke;
->>>>>>> 52a1b84d53004ab2c5c1153abd162f1d3f80bf77
         }
-    }
 
-<<<<<<< HEAD
-	void LateUpdate(){
-		if(type == WeaponType.missile){
-			temp = findClosest ();
-		}
-	}
-
-	GameObject findClosest(){
-		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-		if (enemies.Length > 0) {
-			int closestIndex = 0;
-			float closestDistance = Mathf.Infinity;
-			float tempDistance;
-			for (int i = 0; i < enemies.Length; i++) {
-				tempDistance = Vector3.Distance (this.transform.position, enemies [i].transform.position);
-				if (tempDistance < closestDistance) {
-					closestDistance = tempDistance;
-					closestIndex = i;
-				}
-			}
-			return enemies [closestIndex];
-		}
-		return null;
-	}
-
-=======
     }
 
 	void LateUpdate(){
@@ -263,7 +229,6 @@ public class Weapon : MonoBehaviour {
 		return null;
 	}
 
->>>>>>> 52a1b84d53004ab2c5c1153abd162f1d3f80bf77
 
 }
 
