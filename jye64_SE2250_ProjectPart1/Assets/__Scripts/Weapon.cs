@@ -193,12 +193,14 @@ public class Weapon : MonoBehaviour {
         {
             type = WeaponType.missile;
         }
-        if (Main.S.BombCountText.Equals("0"))
-        {
-        }
-        else if(Input.GetKeyDown(KeyCode.E))
-        {
-            type = WeaponType.nuke;
+        if(Input.GetKeyDown(KeyCode.E))
+        { int BombCount = Main.S.getBombCount();
+            if (BombCount != 0)
+            {
+                BombCount -= 1;
+                type = WeaponType.nuke;
+                Main.S.setBombCountText(BombCount);
+            }
         }
 
     }

@@ -154,8 +154,12 @@ public class Main : MonoBehaviour {
 	}
     public void setBombCountText(int input)
     {
-        _BombCount += input;
+        _BombCount = input;
         BombCountText.text = "Bomb: " + _BombCount.ToString();
+    }
+    public int getBombCount()
+    {
+        return _BombCount;
     }
 
     public void setLevelText(){
