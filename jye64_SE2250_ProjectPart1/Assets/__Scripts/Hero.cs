@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Hero : MonoBehaviour {
 
@@ -16,6 +17,8 @@ public class Hero : MonoBehaviour {
 	public Weapon[] weapons;           
 	public GameObject heroExplosion;
 
+	public Text bottomText;
+
 	[Header("Set Dynamically")]
 	[SerializeField]
 	private float _shieldLevel = 1;
@@ -26,6 +29,15 @@ public class Hero : MonoBehaviour {
 
 	public WeaponFireDelegate fireDelegate;
 
+	private EnergyBar energy;
+
+
+
+	//following fields are for "undamaged" power up 
+	private bool harm;     //determine whether take damage
+	private float harmCounter;   // time duration for not taking damage from enemies
+	private bool startHarmCount;  //bool for start counting undamaged duration
+
 	void Start(){
 		if (S == null) {
 			S = this;
@@ -34,6 +46,10 @@ public class Hero : MonoBehaviour {
 		}
 		ClearWeapons ();
 		weapons [0].SetType (WeaponType.simple);
+		energy = GameObject.Find("EnergyBar").GetComponent<EnergyBar>();
+		harmCounter = 0;
+		harm = true;
+		startHarmCount = false;
 	}
 
 
@@ -52,6 +68,17 @@ public class Hero : MonoBehaviour {
 		if (Input.GetAxis("Jump") == 1 && fireDelegate !=null){
 			fireDelegate();
 		}
+
+		if(startHarmCount)
+		{
+			harmCounter += Time.deltaTime;
+			if(harmCounter>=10f){
+				setBottomText ("");
+				startHarmCount = false;
+				harmCounter = 0;
+				harm = true;
+			}
+		}
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -64,12 +91,16 @@ public class Hero : MonoBehaviour {
 		lastTriggerGo = go;
 
 		if (go.tag == "Enemy") {
-			shieldLevel--;
+			if(harm){
+				shieldLevel--;
+			}
 			Destroy (go);
 		} else if (go.tag == "PowerUp"){
 			AbsorbPowerUp (go);          
 		} else if (go.tag == "ProjectileEnemy"){
-			shieldLevel--;
+			if(harm){
+				shieldLevel--;
+			}
             Destroy(go);
 		} else {
 			print ("Triggered by non-Enemy: " + go.name);
@@ -84,6 +115,7 @@ public class Hero : MonoBehaviour {
 		case WeaponType.shield:
 			shieldLevel++;
 			break;
+
         case WeaponType.nuke:
                 int BombCount = Main.S.getBombCount();
                 BombCount += 1;
@@ -91,6 +123,18 @@ public class Hero : MonoBehaviour {
             pu.SetType(WeaponType.simple);
             SwitchWeapons(pu.type);
             break;
+
+
+		case WeaponType.undamaged:
+			energy.changeHP (1);    //accumulate energy bar
+			if(energy.currentHP==3){
+				setBottomText("No damage");
+				harm = false;
+				startHarmCount = true;
+				energy.currentHP = 0;
+			}
+			break;
+
         default:
 			if (pu.type == weapons [0].type) {      // if it's the same weapon type
 				Weapon w = GetEmptyWeaponSlot ();
@@ -147,5 +191,8 @@ public class Hero : MonoBehaviour {
 		}
 	}
 		
+	void setBottomText(string input){
+		bottomText.text = input;
+	}
 
 }

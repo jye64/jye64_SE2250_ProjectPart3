@@ -74,7 +74,7 @@ public class Main : MonoBehaviour {
 			ndx = prefabEnemies.Length-1;
 		}
 			
-		GameObject go = Instantiate<GameObject> (prefabEnemies [ndx]);
+		GameObject go = Instantiate<GameObject> (prefabEnemies[ndx]);
 		if (ndx == 4)
 			toSpawn = false;     //spawn only one Boss
 

@@ -16,9 +16,10 @@ public enum WeaponType{
 	spread,      //two shots simultaneously
 	phaser,      //[NT] shots that move in waves
 	missile,     //[NT] homing missiles
-	laser, //[NT] damage over time
-    nuke,
-	shield,//raise shieldLevel
+	laser,       //[NT] damage over time
+    nuke,        //destroy all enemies on screen, only accessible if pick up the specific power up
+	shield,      //raise shieldLevel
+	undamaged    // taking no damage from enemies, only accessible if pick up a certain amount of the specific power up
 
 }
 
