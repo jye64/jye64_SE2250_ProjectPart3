@@ -210,4 +210,4 @@ MonoBehaviour:
   lastShotTime: 0
   radius: 5
   power: 10
-  explosions: {fileID: 100012, guid: 87429d2e1e9c84905b556d4343f12981, type: 2}
+  explosions: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}

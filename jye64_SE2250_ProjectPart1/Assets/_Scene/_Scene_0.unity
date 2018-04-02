@@ -1197,7 +1197,7 @@ MonoBehaviour:
     projectileprefab: {fileID: 1517225368455774, guid: bfbed9d4665554428abace5f42af69f5,
       type: 2}
     projectileColor: {r: 0.99264705, g: 1, b: 1, a: 1}
-    damageOnHit: 1
+    damageOnHit: 100
     continuousDamage: 0
     delayBetweenShots: 0.2
     velocity: 50
@@ -1207,7 +1207,7 @@ MonoBehaviour:
     projectileprefab: {fileID: 1517225368455774, guid: bfbed9d4665554428abace5f42af69f5,
       type: 2}
     projectileColor: {r: 0.0068122903, g: 0.7361962, b: 0.9264706, a: 1}
-    damageOnHit: 2
+    damageOnHit: 100
     continuousDamage: 0
     delayBetweenShots: 0.4
     velocity: 50
@@ -1242,7 +1242,7 @@ MonoBehaviour:
     velocity: 0
   prefabPowerUp: {fileID: 1666717322445834, guid: 9f871b70de9604db899e487d0a933724,
     type: 2}
-  powerUpFrequency: 07000000070000000700000007000000
+  powerUpFrequency: 0100000007000000070000000700000007000000070000000700000007000000
   scoreText: {fileID: 95935099}
   levelText: {fileID: 361986292}
   highScoreText: {fileID: 1388943767}

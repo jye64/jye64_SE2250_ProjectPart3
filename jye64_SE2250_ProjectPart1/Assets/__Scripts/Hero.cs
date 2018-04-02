@@ -76,20 +76,20 @@ public class Hero : MonoBehaviour {
 		}
 	}
 
-	public void AbsorbPowerUp(GameObject go){      
+	public void AbsorbPowerUp(GameObject go){
 		PowerUp pu = go.GetComponent<PowerUp> ();
-		Debug.Log (pu.type);     
-		switch (pu.type) {
-
+        Main.S.SetOldWeapon(pu);
+        Debug.Log (pu.type);
+		switch (pu.type) { 
 		case WeaponType.shield:
 			shieldLevel++;
 			break;
         case WeaponType.nuke:
-                int BombCount = Main.S.getBombCount();
-                BombCount += 1;
+            int BombCount = Main.S.getBombCount();
+            BombCount += 1;
             Main.S.setBombCountText(BombCount);
-            pu.SetType(WeaponType.simple);
-            SwitchWeapons(pu.type);
+            SwitchWeapons(Main.S.GetOldWeapon());
+            
             break;
         default:
 			if (pu.type == weapons [0].type) {      // if it's the same weapon type
