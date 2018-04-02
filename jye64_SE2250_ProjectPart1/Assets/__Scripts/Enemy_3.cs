@@ -14,7 +14,7 @@ public class Enemy_3 : Enemy {
     private float timeCounter = 0f;
 
 	void Start(){
-		Invoke ("EnemyFire", 3f);
+		Invoke ("EnemyFire", 2f);
 	}
 		
 	void EnemyFire()
@@ -25,10 +25,12 @@ public class Enemy_3 : Enemy {
         gameOB.layer = LayerMask.NameToLayer("ProjectileEnemy");
 
 		GameObject hero = GameObject.Find ("_Hero");
-		Vector3 vel = hero.transform.position -this.transform.position;
-
-        Rigidbody rb = gameOB.GetComponent<Rigidbody>();
-		rb.velocity = vel;
+		if(hero!= null){
+			Vector3 vel = hero.transform.position -this.transform.position;
+			Rigidbody rb = gameOB.GetComponent<Rigidbody>();
+			rb.velocity = vel;
+		}
+		Invoke ("EnemyFire", 2.5f);
     }
 
 

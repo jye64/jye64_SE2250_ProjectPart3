@@ -92,6 +92,7 @@ public class Enemy : MonoBehaviour {
 				Destroy (this.gameObject);
 				Main.S.setScoreText (score); 
 				Main.S.setLevelText ();
+				Main.S.setNextLevelText ();
 			}
 			ShowDamage ();   
 			Destroy (otherGO);

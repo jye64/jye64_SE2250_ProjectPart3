@@ -579,12 +579,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a394b581f4f5a45ca984a6610f3fc4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 13
+  speed: 16
   fireRate: 0.3
   health: 20
-  score: 100
+  score: 150
   showDamageDuration: 0.1
-  powerUpDropChance: 1
+  powerUpDropChance: 0.5
   explosion: {fileID: 100012, guid: 87429d2e1e9c84905b556d4343f12981, type: 2}
   originalColors: []
   materials: []
