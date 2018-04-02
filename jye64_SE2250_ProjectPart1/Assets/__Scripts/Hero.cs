@@ -88,7 +88,6 @@ public class Hero : MonoBehaviour {
         case WeaponType.nuke:
             int BombCount = Main.S.getBombCount();
             BombCount += 1;
-                Debug.Log(BombCount);
             Main.S.setBombCountText(BombCount);
             pu.SetType(WeaponType.simple);
             SwitchWeapons(pu.type);

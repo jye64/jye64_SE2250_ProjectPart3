@@ -1210,6 +1210,19 @@ MonoBehaviour:
     continuousDamage: 0
     delayBetweenShots: 0.4
     velocity: 50
+<<<<<<< HEAD
+=======
+  - type: 5
+    letter: M
+    color: {r: 0.8897059, g: 0.16354887, b: 0.26871628, a: 1}
+    projectileprefab: {fileID: 1517225368455774, guid: bfbed9d4665554428abace5f42af69f5,
+      type: 2}
+    projectileColor: {r: 0.9117647, g: 0.09385811, b: 0.28000242, a: 1}
+    damageOnHit: 2
+    continuousDamage: 0
+    delayBetweenShots: 0.2
+    velocity: 80
+>>>>>>> 52a1b84d53004ab2c5c1153abd162f1d3f80bf77
   - type: 8
     letter: 0
     color: {r: 0.0627451, g: 0.11764706, b: 0.6901961, a: 1}
