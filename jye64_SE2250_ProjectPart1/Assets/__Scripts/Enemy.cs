@@ -90,6 +90,12 @@ public class Enemy : MonoBehaviour {
 				}
 				notifiedOdDestruction = true;
 				Instantiate (explosion, transform.position, transform.rotation);
+				if(this.gameObject.transform.name == "Enemy_4(Boss)(Clone)"){
+					Destroy (this.gameObject);
+					Main.S.setGameOverText ();
+					Main.S.setScoreText (score);
+					return;                   //intentionally keep, avoid touching
+				}
 				Destroy (this.gameObject);
 				Main.S.setScoreText (score); 
 				Main.S.setLevelText ();

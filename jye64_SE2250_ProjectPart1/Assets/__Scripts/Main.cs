@@ -33,8 +33,7 @@ public class Main : MonoBehaviour {
 
     private int _BombCount = 0;
 
-	public Text nextLevelText;
-	private int currentLevel = 1;
+	public Text centralText;
 
 	private BoundsCheck bndCheck;
 	private float spawnTimer;
@@ -69,7 +68,7 @@ public class Main : MonoBehaviour {
 
 	public void SpawnEnemy(){
 		int ndx;
-		if(currentLevel==1){
+		if(_levelCounter==1){
 			ndx = Random.Range (0, prefabEnemies.Length-1);
 		}else{
 			ndx = prefabEnemies.Length-1;
@@ -152,11 +151,13 @@ public class Main : MonoBehaviour {
 		}
 		highScoreText.text = "High Score: " + "\n" + PlayerPrefs.GetInt("_highScoreCounter");
 	}
+
     public void setBombCountText(int input)
     {
         _BombCount = input;
         BombCountText.text = "Bomb: " + _BombCount.ToString();
     }
+
     public int getBombCount()
     {
         return _BombCount;
@@ -182,8 +183,7 @@ public class Main : MonoBehaviour {
 
 	public void setNextLevelText(){
 		if(_scoreCounter>1200){
-			currentLevel = 2;
-			nextLevelText.text = "Next Level";
+			centralText.text = "Next Level";
 			clearEnemy ();
 			Invoke ("resetSpawn", 2f);
 		}
@@ -195,7 +195,11 @@ public class Main : MonoBehaviour {
 	}
 
 	void clearNextLevelText(){
-		nextLevelText.text = "";
+		centralText.text = "";
+	}
+
+	public void setGameOverText(){
+		centralText.text = "Enemy Defeated";
 	}
 
 
