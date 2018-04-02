@@ -585,7 +585,7 @@ MonoBehaviour:
   score: 150
   showDamageDuration: 0.1
   powerUpDropChance: 0.5
-  explosion: {fileID: 100012, guid: 87429d2e1e9c84905b556d4343f12981, type: 2}
+  explosion: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
   originalColors: []
   materials: []
   showingDamage: 0

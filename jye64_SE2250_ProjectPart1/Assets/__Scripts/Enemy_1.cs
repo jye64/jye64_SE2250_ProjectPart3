@@ -11,7 +11,6 @@ public class Enemy_1 : Enemy {
     private float radius = 1f;
     private float camWidth;
     private float camHeight;
-    public float enemyShootingInterval = 2.0f;
     public GameObject projectilePrefab;   //holding Enemy projectile 
 
     private bool direction;    
@@ -52,16 +51,13 @@ public class Enemy_1 : Enemy {
 
     public override void Move()
     {
-        if (direction == true)
-        {
+        if (direction == true) {
             transform.Translate(new Vector3(-1 * Time.deltaTime * 10, 0, 0)); // left
             if (pos.x < -camWidth + radius + 3)
             {
                 direction = false; //when hits the scene boundary, change direction
             }
-        }
-        else
-        {
+        } else {
             transform.Translate(new Vector3(1 * Time.deltaTime * 10, 0, 0)); // right
             if (pos.x > camWidth - radius - 3)
             {

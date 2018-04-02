@@ -605,14 +605,13 @@ MonoBehaviour:
   score: 80
   showDamageDuration: 0.1
   powerUpDropChance: 0.4
-  explosion: {fileID: 100012, guid: 87429d2e1e9c84905b556d4343f12981, type: 2}
+  explosion: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
   originalColors: []
   materials: []
   showingDamage: 0
   damageDoneTime: 0
   notifiedOdDestruction: 0
   projectileSpeed: 40
-  enemyShootingInterval: 2
   projectilePrefab: {fileID: 1517225368455774, guid: a2c71286482f84226b9f90fd99ce90dc,
     type: 2}
 --- !u!135 &135064218969020552

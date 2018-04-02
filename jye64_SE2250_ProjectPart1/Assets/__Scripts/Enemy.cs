@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour {
 		for (int i = 0; i < materials.Length; i++) {
 			originalColors [i] = materials [i].color;
 		}
+
 	}
 
 	public Vector3 pos{

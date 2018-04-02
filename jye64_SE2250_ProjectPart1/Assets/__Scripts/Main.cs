@@ -34,6 +34,7 @@ public class Main : MonoBehaviour {
     private int _BombCount = 0;
 
 	public Text nextLevelText;
+	private int currentLevel = 1;
 
 	private BoundsCheck bndCheck;
 	private float spawnTimer;
@@ -67,8 +68,16 @@ public class Main : MonoBehaviour {
 	}
 
 	public void SpawnEnemy(){
-		int ndx = Random.Range (0, prefabEnemies.Length);
+		int ndx;
+		if(currentLevel==1){
+			ndx = Random.Range (0, prefabEnemies.Length-1);
+		}else{
+			ndx = prefabEnemies.Length-1;
+		}
+			
 		GameObject go = Instantiate<GameObject> (prefabEnemies [ndx]);
+		if (ndx == 4)
+			toSpawn = false;     //spawn only one Boss
 
 		//position the Enemy above the screen with a random x position
 		float enemyPadding = enemyDefaultPadding;
@@ -125,7 +134,7 @@ public class Main : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		setHighScoreText ();
-		if((spawnTimer > 1f / enemySpawnPerSecond)&& toSpawn ){
+		if((spawnTimer >= 1f / enemySpawnPerSecond) && toSpawn ){
 			SpawnEnemy ();
 			spawnTimer = 0; 
 		}
@@ -169,9 +178,20 @@ public class Main : MonoBehaviour {
 
 	public void setNextLevelText(){
 		if(_scoreCounter>1200){
+			currentLevel = 2;
 			nextLevelText.text = "Next Level";
 			clearEnemy ();
+			Invoke ("resetSpawn", 2f);
 		}
+	}
+		
+	void resetSpawn(){
+		toSpawn = true;
+		clearNextLevelText ();
+	}
+
+	void clearNextLevelText(){
+		nextLevelText.text = "";
 	}
 
 

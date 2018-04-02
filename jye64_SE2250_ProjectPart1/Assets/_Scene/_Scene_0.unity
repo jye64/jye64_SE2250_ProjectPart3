@@ -788,7 +788,7 @@ MonoBehaviour:
   - {fileID: 1067953743}
   - {fileID: 1394697413}
   - {fileID: 2018550778}
-  heroExplosion: {fileID: 100008, guid: be99f26671b6a4e8890c796e5f52723c, type: 2}
+  heroExplosion: {fileID: 100008, guid: 3455fe69f7ddc4604b95bf9b0a1e88d7, type: 2}
   _shieldLevel: 1
 --- !u!114 &1086499456
 MonoBehaviour:
@@ -1187,6 +1187,7 @@ MonoBehaviour:
   - {fileID: 1517268337290682, guid: 1dfca8f9c42f94c26ab4e5c92a61693c, type: 2}
   - {fileID: 1578338867712680, guid: e016cef0ebb834188bf7bdc563b9819d, type: 2}
   - {fileID: 1887227257424044, guid: 284832d400b494c97abfd9a71bff77f0, type: 2}
+  - {fileID: 1213632223091110, guid: e892cfdfa76b847e8974de41a81e883f, type: 2}
   enemySpawnPerSecond: 0.5
   enemyDefaultPadding: 1.5
   weaponDefinitions:
