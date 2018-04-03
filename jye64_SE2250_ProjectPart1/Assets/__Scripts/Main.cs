@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class Main : MonoBehaviour {
 
@@ -166,7 +167,7 @@ public class Main : MonoBehaviour {
     }
 
     public void setLevelText(){
-		if (_scoreCounter > 1200){
+		if (_scoreCounter >= 1200){
 			_levelCounter = 2;
 			levelText.text = "Level: " + _levelCounter.ToString();
 		}else{
@@ -184,7 +185,7 @@ public class Main : MonoBehaviour {
 	}
 
 	public void setNextLevelText(){
-		if(_scoreCounter>1200){
+		if(_scoreCounter >= 1200){
 			centralText.text = "Next Level";
 			clearEnemy ();
 			Invoke ("resetSpawn", 2f);
@@ -201,7 +202,8 @@ public class Main : MonoBehaviour {
 	}
 
 	public void setGameOverText(){
-		centralText.text = "Enemy Defeated";
+		centralText.text = "Enemy Defeated"+"\n"+ "Your score is " +_scoreCounter.ToString();
+		Invoke ("exitGame", 2f);
 	}
 
 	public void SetOldWeapon(PowerUp pw)
@@ -219,6 +221,10 @@ public class Main : MonoBehaviour {
 			old = WeaponType.simple;
 		}
 		return old;
+	}
+
+	void exitGame(){
+		EditorApplication.isPlaying = false;
 	}
 
 

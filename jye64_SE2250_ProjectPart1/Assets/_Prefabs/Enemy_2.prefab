@@ -436,7 +436,7 @@ MonoBehaviour:
   speed: 10
   fireRate: 0.3
   health: 15
-  score: 120
+  score: 80
   showDamageDuration: 0.1
   powerUpDropChance: 0.5
   explosion: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}

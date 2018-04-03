@@ -31,9 +31,8 @@ public class Hero : MonoBehaviour {
 
 	private EnergyBar energy;
 
-
 	//following fields are for "undamaged" power up 
-	private bool harm;     //determine whether take damage
+	private bool harm;     //determine whether hero will take damage
 	private float harmCounter;   // time duration for not taking damage from enemies
 	private bool startHarmCount;  //bool for start counting undamaged duration
 
@@ -93,6 +92,11 @@ public class Hero : MonoBehaviour {
 			if(harm){
 				shieldLevel--;
 			}
+			if(go.name=="Enemy_4(Boss)(Clone)"){
+				Enemy enemyscript= go.GetComponent<Enemy>();
+				Main.S.setScoreText (enemyscript.score);
+				Main.S.setGameOverText ();
+			}
 			Destroy (go);
 		} else if (go.tag == "PowerUp"){
 			AbsorbPowerUp (go);          
@@ -116,17 +120,15 @@ public class Hero : MonoBehaviour {
 			shieldLevel++;
 			break;
 
-		case WeaponType.nuke:
+		case WeaponType.nuke:            //power up : nuke
 			int BombCount = Main.S.getBombCount();
-			BombCount += 1;
+			BombCount += 1;              //accumulate bombs count
 			Main.S.setBombCountText(BombCount);
 			SwitchWeapons(Main.S.GetOldWeapon());
-
 			break;
 
-
-		case WeaponType.undamaged:
-			energy.changeHP (1);    //accumulate energy bar
+		case WeaponType.undamaged:      //power up : undamaged
+			energy.changeHP (1);        //accumulate energy bar
 			if(energy.currentHP==3){
 				setBottomText("No damage");
 				harm = false;

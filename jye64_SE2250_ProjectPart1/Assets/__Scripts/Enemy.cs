@@ -89,8 +89,8 @@ public class Enemy : MonoBehaviour {
 				Instantiate (explosion, transform.position, transform.rotation);
 				if(this.gameObject.transform.name == "Enemy_4(Boss)(Clone)"){
 					Destroy (this.gameObject);
-					Main.S.setGameOverText ();
 					Main.S.setScoreText (score);
+					Main.S.setGameOverText ();
 					return;                   //intentionally keep, avoid touching
 				}
 				Destroy (this.gameObject);

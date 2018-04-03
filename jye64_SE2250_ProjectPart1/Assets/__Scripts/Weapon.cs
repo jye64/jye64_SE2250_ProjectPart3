@@ -159,6 +159,9 @@ public class Weapon : MonoBehaviour {
             Enemy EnemyScript = enemy.GetComponent<Enemy>();
             Main.S.setScoreText(EnemyScript.score);
             Instantiate(explosions, enemy.transform.position, enemy.transform.rotation);
+			if(enemy.name=="Enemy_4(Boss)(Clone)"){
+				Main.S.setGameOverText ();
+			}
             Destroy(enemy);
 			type = Main.S.GetOldWeapon();
         }
