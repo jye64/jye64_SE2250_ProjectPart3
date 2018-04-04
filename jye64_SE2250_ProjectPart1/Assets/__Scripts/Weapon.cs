@@ -161,6 +161,8 @@ public class Weapon : MonoBehaviour {
         foreach(GameObject enemy in gameObjects) {
             Enemy EnemyScript = enemy.GetComponent<Enemy>();
             Main.S.setScoreText(EnemyScript.score);
+			Main.S.setLevelText ();
+			Main.S.setNextLevelText ();
             Instantiate(explosions, enemy.transform.position, enemy.transform.rotation);
 			if(enemy.name=="Enemy_4(Boss)(Clone)"){
 				Main.S.setGameOverText ();

@@ -59,7 +59,7 @@ public class Enemy_4 : Enemy
 
 		}
 
-		Invoke("EnemyFire", 1.5f);
+		Invoke("EnemyFire", 2.5f);
 	}
 
 	public override void Move()

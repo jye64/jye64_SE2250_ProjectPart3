@@ -1187,7 +1187,7 @@ MonoBehaviour:
   gameRestartDelay: 3
   projectilePrefab: {fileID: 1517225368455774, guid: bfbed9d4665554428abace5f42af69f5,
     type: 2}
-  projectileSpeed: 40
+  projectileSpeed: 50
   weapons:
   - {fileID: 1808735354}
   - {fileID: 1197509158}
@@ -1689,7 +1689,7 @@ MonoBehaviour:
     velocity: 0
   prefabPowerUp: {fileID: 1666717322445834, guid: 9f871b70de9604db899e487d0a933724,
     type: 2}
-  powerUpFrequency: 070000000700000009000000090000000900000009000000
+  powerUpFrequency: 070000000700000008000000020000000900000009000000
   scoreText: {fileID: 95935099}
   levelText: {fileID: 361986292}
   highScoreText: {fileID: 1388943767}
