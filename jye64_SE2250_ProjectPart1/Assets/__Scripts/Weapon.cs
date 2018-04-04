@@ -145,8 +145,11 @@ public class Weapon : MonoBehaviour {
 			break;
 
 
-        case WeaponType.nuke:
-            Nuke();
+		case WeaponType.nuke:
+			Nuke ();
+			int bombCount = Main.S.getBombCount ();
+			bombCount -= 1;
+			Main.S.setBombCountText (bombCount);
             break;
         } // end switch
 

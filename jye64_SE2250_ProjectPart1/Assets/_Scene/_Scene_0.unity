@@ -1689,7 +1689,7 @@ MonoBehaviour:
     velocity: 0
   prefabPowerUp: {fileID: 1666717322445834, guid: 9f871b70de9604db899e487d0a933724,
     type: 2}
-  powerUpFrequency: 090000000900000009000000090000000900000009000000
+  powerUpFrequency: 070000000700000008000000090000000900000009000000
   scoreText: {fileID: 95935099}
   levelText: {fileID: 361986292}
   highScoreText: {fileID: 1388943767}
