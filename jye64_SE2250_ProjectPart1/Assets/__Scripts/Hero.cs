@@ -130,7 +130,7 @@ public class Hero : MonoBehaviour {
 		case WeaponType.undamaged:      //power up : undamaged
 			energy.changeHP (1);        //accumulate energy bar
 			if(energy.currentHP==3){
-				setBottomText("No damage");
+				setBottomText("You're Invincible!");
 				harm = false;
 				startHarmCount = true;
 				energy.currentHP = 0;

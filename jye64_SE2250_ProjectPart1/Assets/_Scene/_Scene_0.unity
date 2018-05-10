@@ -1695,6 +1695,7 @@ MonoBehaviour:
   highScoreText: {fileID: 1388943767}
   BombCountText: {fileID: 306228399}
   centralText: {fileID: 68028760}
+  levelThreshold: 2000
 --- !u!1 &1388943765
 GameObject:
   m_ObjectHideFlags: 0

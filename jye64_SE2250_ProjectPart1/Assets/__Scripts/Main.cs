@@ -16,6 +16,7 @@ public class Main : MonoBehaviour {
 	public float enemyDefaultPadding = 1.5f;
 	public WeaponDefinition[] weaponDefinitions;
 	public GameObject prefabPowerUp;
+	public int levelThreshold;
 
 	// Here is the array of available PowerUps
 	public WeaponType[] powerUpFrequency = new WeaponType[]{
@@ -167,7 +168,7 @@ public class Main : MonoBehaviour {
     }
 
     public void setLevelText(){
-		if (_scoreCounter >= 1200){
+		if (_scoreCounter >= levelThreshold){
 			_levelCounter = 2;
 			levelText.text = "Level: " + _levelCounter.ToString();
 		}else{
@@ -185,7 +186,7 @@ public class Main : MonoBehaviour {
 	}
 
 	public void setNextLevelText(){
-		if(_scoreCounter >= 1200){
+		if(_scoreCounter >= levelThreshold){
 			centralText.text = "Next Level";
 			clearEnemy ();
 			Invoke ("resetSpawn", 2f);
